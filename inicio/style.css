@@ -1,0 +1,28 @@
+body {
+    background-color: #fecada;
+    background-image: url(img/background.jpg);
+    background-size: cover;
+}
+
+#logo {
+    width: 75%;
+    height: 75%;
+}
+
+#user-icon {
+    width: 40px;
+    height: 40px;
+}
+
+#user-icon:hover {
+    background-color: gray;
+}
+
+header {
+    box-shadow: 0px 7px 20px gray;
+}
+
+h1 {
+    font-size: 48pt;
+    font-family: roboto;
+}
