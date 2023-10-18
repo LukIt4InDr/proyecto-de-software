@@ -1,0 +1,49 @@
+body {
+    background-color: #fecada;
+}
+
+#cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+label {
+    font-size: large;
+}
+
+.form-control {
+    font-size: large;
+}
+
+#logo {
+    width: 75%;
+    height: 75%;
+}
+
+#user-icon {
+    width: 40px;
+    height: 40px;
+}
+
+#user-icon:hover {
+    background-color: gray;
+}
+
+#card-cart {
+    border-radius: 20px;
+    box-shadow: 0px 7px 20px gray;
+    height: 600px;
+}
+
+header {
+    box-shadow: 0px 7px 20px gray;
+}
+
+#rmpwd {
+    border: 1px solid black;
+}
