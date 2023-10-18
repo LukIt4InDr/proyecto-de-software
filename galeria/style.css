@@ -1,3 +1,21 @@
+body {
+    background-color: #fecada;
+}
+
+#logo {
+    width: 75%;
+    height: 75%;
+}
+
+#user-icon {
+    width: 40px;
+    height: 40px;
+}
+
+#user-icon:hover {
+    background-color: gray;
+}
+
 .flores {
     margin-top: 30px;
 }
