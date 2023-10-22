@@ -12,7 +12,7 @@ $nombre = $_POST["txtusuario"];
 $clave = $_POST["txtclave"];
 
 //Traigo la informacion desde el inicio de sesion
-$select = "select Nombre_de_Usuario from USUARIO where Nombre_de_Usuario = '{$nombre}' ";
+$select = "select Nombre_de_Usuario from USUARIO where Nombre_de_Usuario = '{$nombre}' and  Password = '{$clave}' ";
 $query = mysqli_query($conexion, $select);
 
 //Hago un conteo para saber si existe el usuario
@@ -22,6 +22,6 @@ $filas = mysqli_num_rows($query);
 if ($filas == 1)
     echo "Bienvenido " . $nombre;
 else
-    echo "el usuario no existe";
+    echo "usuario o clave incorrecto";
 
 ?>
