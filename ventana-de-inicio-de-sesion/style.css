@@ -10,6 +10,7 @@ body {
 
 h1 {
     text-align: center;
+    margin-top: 100px;
 }
 
 label {
@@ -45,4 +46,27 @@ header {
 
 #rmpwd {
     border: 1px solid black;
+}
+
+#Texto-Bienvenido{
+   /* width: 80%;
+    text-align: center;*/
+
+    margin-top: 30px;
+}
+
+footer{
+    text-align: center;
+    background-color: #b96f85;
+    color: white;
+    margin-top: 100px;
+    padding: 50px;
+}
+
+#ver-mas {
+    text-align: center;
+}
+
+#ver-galeria {
+    margin-top: 30px;
 }
