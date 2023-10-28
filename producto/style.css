@@ -1,0 +1,23 @@
+body {
+    background-color: #fecada;
+}
+
+header {
+    box-shadow: 0px 7px 20px gray;
+}
+
+footer{
+    text-align: center;
+    background-color: #b96f85;
+    color: white;
+    margin-top: 100px;
+    padding: 50px;
+}
+
+#iniciar-sesion{
+    margin-left: 20px;
+}
+
+#producto {
+    margin-top: 80px;
+}
