@@ -16,9 +16,9 @@
     <header>
         <nav class="navbar navbar-expand-sm bg-light py-3">
             <div class="container">
-                <a class="navbar-brand" href="#"><img src="img/petals-logo.png" alt="petals-logo" id="logo"></a>
+                <a class="navbar-brand" href="index.php"><img src="img/petals-logo.png" alt="petals-logo" id="logo"></a>
                 <div>
-                    <a href="../ventana-de-inicio-de-sesion/index.html"><img src="img/user-icon.png" class="rounded-circle" alt="user-icon" id="user-icon"></a>
+                    <a href="ventana-de-inicio-de-sesion/index.html"><img src="img/user-icon.png" class="rounded-circle" alt="user-icon" id="user-icon"></a>
                 </div>
             </div>
         </nav>
@@ -30,7 +30,7 @@
                 <h1 class="mx-5" id="bienvenida">Bienvenido a Floreria<br>Petals</h1>
             </div>
             <div>
-                <a href="../galeria/index.html" role="button" class="btn btn-primary btn-lg mx-5">Arreglos Florales</a>
+                <a href="galeria/index.html" role="button" class="btn btn-primary btn-lg mx-5">Arreglos Florales</a>
             </div>
         </div>
     </section>
@@ -58,7 +58,7 @@
                     <img src="./galeria/imagenes/3.jpg" alt="">
                 </div>
                 <div>
-                    <a href="../galeria/index.html" class="btn btn-primary btn-lg" type="submit" id="ver-galeria">Ver galeria</a>
+                    <a href="galeria/index.html" class="btn btn-primary btn-lg" type="submit" id="ver-galeria">Ver galeria</a>
                 </div>
             </div>
         </div>
