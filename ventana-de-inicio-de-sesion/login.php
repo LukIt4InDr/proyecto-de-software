@@ -1,5 +1,6 @@
 <?php
 if(isset($_POST['submit'])){
+    session_start();
     //cadena de conexion
     $conexion = mysqli_connect("localhost", "root","","floreria");
 
@@ -10,6 +11,9 @@ if(isset($_POST['submit'])){
     //tomo los valores de las variables
     $nombre = $_POST["user"];
     $clave = $_POST["pswd"];
+
+    $_SESSION["usuario"] = $nombre;
+    $_SESSION["contraseña"] = $clave;
 
     //Traigo la informacion desde el inicio de sesion
     $select = "select Nombre_de_Usuario from USUARIO where Nombre_de_Usuario = '{$nombre}' and  Password = '{$clave}' ";

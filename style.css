@@ -1,0 +1,73 @@
+body {
+    background-color: #fecada;
+}
+
+#hero {
+    background-image: url(img/background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 725px;
+}
+
+#logo {
+    width: 75%;
+    height: 75%;
+}
+
+#user-icon {
+    width: 40px;
+    height: 40px;
+}
+
+#user-icon:hover {
+    background-color: gray;
+}
+
+header {
+    box-shadow: 0px 7px 20px gray;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 450px;
+}
+
+h1 {
+    font-size: 48pt;
+    font-family: roboto;
+    color: #e313c4;
+}
+
+.btn-primary {
+    font-size: 20pt;
+}
+
+#Texto-Bienvenido {
+    margin-top: 30px;
+}
+
+footer {
+    text-align: center;
+    background-color: #b96f85;
+    color: white;
+    margin-top: 100px;
+    padding: 50px;
+}
+
+.about-us {
+    text-align: center;
+}
+
+#ver-mas {
+    text-align: center;
+}
+
+#ver-galeria {
+    margin-top: 30px;
+}
+
+#iniciar-sesion {
+    margin-left: 20px;
+}
