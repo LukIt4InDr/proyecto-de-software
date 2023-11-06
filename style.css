@@ -1,0 +1,52 @@
+body {
+    background-color: #fecada;
+}
+
+#login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1,h2 {
+    text-align: center;
+    margin-top: 100px;
+    color: #b96f85;
+}
+
+header {
+    box-shadow: 0px 7px 20px gray;
+}
+
+#Texto-Bienvenido{
+    margin-top: 30px;
+}
+
+footer{
+    text-align: center;
+    background-color: #b96f85;
+    color: white;
+    margin-top: 100px;
+    padding: 50px;
+}
+
+#ver-mas {
+    text-align: center;
+}
+
+#ver-galeria {
+    margin-top: 30px;
+}
+
+#iniciar-sesion{
+    margin-left: 20px;
+}
+
+.flores {
+    margin-top: 30px;
+}
+
+#imagen-inicio
+{
+    height: 600px;
+}

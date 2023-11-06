@@ -18,9 +18,10 @@ print_r($reg);
 
 echo "</pre>";	*/
 
+/*
 echo "<pre>";
 	print_r($_SESSION);
-echo "</pre>";
+echo "</pre>";*/
 
 
 
@@ -54,3 +55,5 @@ include 'sections/header.php';
 		</div>
 	</div>
 </section>
+
+<?php require_once 'sections/footer.php'; ?>

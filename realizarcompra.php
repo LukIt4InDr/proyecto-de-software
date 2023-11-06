@@ -47,3 +47,5 @@ echo "</pre>";*/
 		<a href="fechaentrega.php" class="btn btn-primary">Continuar</a>
 	</div>
  </div>
+
+<?php require_once 'sections/footer.php'; ?>

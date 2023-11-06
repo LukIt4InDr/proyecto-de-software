@@ -1,10 +1,10 @@
 <?php 
 session_start();
 
-include 'sections/header.php';
+include 'sections/header.php';/*
 echo "<pre>";
 print_r($_SESSION);
-echo "</pre>";
+echo "</pre>";*/
 
 ?>
 <div class="container">
@@ -49,3 +49,5 @@ echo "</pre>";
 	</div>
 	<?php } ?>		
 </div>
+
+<?php require_once 'sections/footer.php'; ?>

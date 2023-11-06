@@ -1,8 +1,8 @@
 <?php 
-session_start();
+session_start();/*
 echo "<pre>";
 print_r($_SESSION);
-echo "</pre>";
+echo "</pre>";*/
 include 'sections/header.php';
 
 ?>
@@ -67,6 +67,6 @@ include 'sections/header.php';
 
 <?php
 
-include 'sections/footer.php';
+require_once 'sections/footer.php';
 
 ?>

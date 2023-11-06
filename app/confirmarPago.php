@@ -2,10 +2,10 @@
 session_start();
 
 include 'conexion.php';
-
+/*
 echo "<pre>";
 print_r($_SESSION);
-echo "</pre>";
+echo "</pre>";*/
 
 if(isset($_POST['confirmar'])){
 	if($_POST['pago'] == 'mp'){
