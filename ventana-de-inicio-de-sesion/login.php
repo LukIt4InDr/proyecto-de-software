@@ -9,14 +9,11 @@ if(isset($_POST['submit'])){
         die("No existe la base de datos" .mysqli_connect_error());
 
     //tomo los valores de las variables
-    $nombre = $_POST["user"];
+    $_SESSION["usuario"] = $_POST["user"];
     $clave = $_POST["pswd"];
 
-    $_SESSION["usuario"] = $nombre;
-    $_SESSION["contraseña"] = $clave;
-
     //Traigo la informacion desde el inicio de sesion
-    $select = "select Nombre_de_Usuario from USUARIO where Nombre_de_Usuario = '{$nombre}' and  Password = '{$clave}' ";
+    $select = "select * from USUARIO where Nombre_de_Usuario = '{$_SESSION["usuario"]}' and  Password = '{$clave}' ";
     $query = mysqli_query($conexion, $select);
 
     //Hago un conteo para saber si existe el usuario
@@ -42,9 +39,11 @@ if(isset($_POST['submit'])){
     <header class="mb-5">
         <nav class="navbar navbar-expand-sm bg-light py-3">
             <div class="container">
-                <a class="navbar-brand" href="../inicio"><img src="img/petals-logo.png" alt="petals-logo" id="logo"></a>
+                <a class="navbar-brand" href="../"><img src="img/petals-logo.png" alt="petals-logo" id="logo"></a>
                 <div>
-                    <a href="#"><img src="img/user-icon.png" class="rounded-circle" alt="user-icon" id="user-icon"></a>
+                    <!-- <a href="../ventana-de-inicio-de-sesion/index.html"><img src="img/user-icon.png" class="rounded-circle" alt="user-icon" id="user-icon"></a> -->
+                    <a href="#" class="btn btn-primary btn-lg" type="submit" id="iniciar-sesion">Ingresar</a>
+                    <a href="../sign-up/signup.php" class="btn btn-outline-secondary btn-lg" type="submit" id="registrarse">Registrarse</a>
                 </div>
             </div>
         </nav>
@@ -57,9 +56,12 @@ if(isset($_POST['submit'])){
                 <?php
                 //Si existe el usuario se muestra un mensaje de Bienvenida, sino se muestra que el usuario no existe
                 if(isset($_POST['submit'])){
-                    if ($filas == 1)
-                        header('Location: ../inicio');
-                    else
+                    if ($filas == 1){
+                        $_SESSION['contraseña'] = $clave;
+                        $datos = mysqli_fetch_array($query);
+                        $_SESSION['id'] = $datos['IDPerfil_Cargo'];
+                        header('Location: ../');
+                    } else
                         echo '<div class="error">El Usuario o la Contraseña son incorrectos.</div>';
                 }
                 ?>

@@ -25,6 +25,7 @@ body {
 
 header {
     box-shadow: 0px 7px 20px gray;
+    position: relative;
 }
 
 .home {
@@ -69,5 +70,9 @@ footer {
 }
 
 #iniciar-sesion {
+    margin-left: 20px;
+}
+
+#registrarse {
     margin-left: 20px;
 }
