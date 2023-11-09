@@ -1,3 +1,9 @@
+<?php
+if(isset($_POST['submit'])){
+
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -52,13 +58,13 @@
                             Ingrese la Contraseña.
                         </div>
                     </div>
-                    <div class="mt-4">
+                    <!-- <div class="mt-4">
                         <label for="name" class="form-label">Nombre:</label>
                         <input type="text" name="name" id="name" class="form-control" placeholder="Ingrese Nombre" required>
                         <div class="invalid-feedback" id="nombreInvalido">
                             Ingrese el Nombre.
                         </div>
-                    </div>
+                    </div> -->
                     <div class="mt-4">
                         <label for="email" class="form-label">Email:</label>
                         <input type="email" name="email" id="email" class="form-control" placeholder="Ingrese Email" required>
@@ -66,7 +72,7 @@
                             Ingrese el Email.
                         </div>
                     </div>
-                    <div class="mt-4">
+                    <!-- <div class="mt-4">
                         <label for="phone" class="form-label">Teléfono:</label>
                         <input type="number" name="phone" id="phone" class="form-control" placeholder="Ingrese Teléfono" required>
                         <div class="invalid-feedback" id="phoneInvalido">
@@ -93,7 +99,7 @@
                         <div class="invalid-feedback" id="dniInvalido">
                             Ingrese el DNI.
                         </div>
-                    </div>
+                    </div> -->
                     <button type="submit" name="submit" class="btn btn-primary mt-4 mb-5">Registrarse</button>
                 </form>
             </div>
