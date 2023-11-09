@@ -1,6 +1,38 @@
 <?php
 if(isset($_POST['submit'])){
     session_start();
+    //cadena de conexion
+    $conexion = mysqli_connect("localhost", "root","","floreria");
+
+    //si no existe la base de datos
+    if (!$conexion){
+        die("No existe la base de datos" .mysqli_connect_error());
+    }
+
+    $usuario = $_POST['user'];
+    $clave = $_POST['pswd'];
+    $email = $_POST['email'];
+
+    $selectUser = "select * from USUARIO where Nombre_de_Usuario = '{$usuario}'";
+    $queryUser = mysqli_query($conexion, $selectUser);
+
+    $filasUser = mysqli_num_rows($queryUser);
+
+    if ($filasUser == 1){
+        echo "El nombre de usuario ya existe.";
+    } else{
+        $selectEmail = "select * from CLIENTE_EMPRESA where Email = '{$email}'";
+        $queryEmail = mysqli_query($conexion, $selectEmail);
+
+        $filasEmail = mysqli_num_rows($queryEmail);
+
+        if($filasEmail == 1){
+            echo "El email ya esta en uso.";
+        } else{
+            echo "Registrado.";
+        }
+    }
+        
 }
 ?>
 
