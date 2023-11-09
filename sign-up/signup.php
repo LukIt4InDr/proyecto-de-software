@@ -1,6 +1,6 @@
 <?php
 if(isset($_POST['submit'])){
-
+    session_start();
 }
 ?>
 
@@ -55,7 +55,7 @@ if(isset($_POST['submit'])){
                         <label for="pswdR" class="form-label">Confirme Contraseña:</label>
                         <input type="password" name="pswdR" id="pswdR" class="form-control" placeholder="Confirme Contraseña" required>
                         <div class="invalid-feedback" id="contraseñaCInvalida">
-                            Ingrese la Contraseña.
+                            La contraseña no coincide.
                         </div>
                     </div>
                     <!-- <div class="mt-4">
