@@ -32,7 +32,13 @@ if(isset($_POST['submit'])){
     $insertUser = "insert into USUARIO (Nombre_de_Usuario, Password, IDUsuario, IDPerfil_Cargo) values ('$usuario', '$clave', '$userID', 1)";
 
     if (mysqli_query($conexion, $insertUser) === TRUE) {
-        $insertClient = "insert into CLIENTE_EMPRESA (Nombre, ApellidoDeCliente, Email, Telefono, Calle, Numero, Localidad, Partido, CP,
+        $insertClient = "insert into CLIENTE_EMPRESA (Nombre, ApellidoDeCliente, Email, Telefono, Calle, Numero, Localidad, Partido, CP, Usuario, ID_Empleado) values ('$nombre', '$apellido', '$email', '$telefono', '$direccion', '$direccion', '$direccion', '$direccion', '$postal', '$usuario', 100)";
+
+        if(mysqli_query($conexion, $insertClient) === TRUE){
+            header("Location:../");
+        } else{
+            echo "Error: " . $insertClient . "<br>" . $conexion->error;
+        }
     } else {
         echo "Error: " . $insertUser . "<br>" . $conexion->error;
     }
