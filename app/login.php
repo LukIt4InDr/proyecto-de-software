@@ -21,9 +21,9 @@ $query = mysqli_query($conexion, $select);
 $filas = mysqli_num_rows($query);
 $user = mysqli_fetch_assoc($query);
 
-echo "<pre>";
+/*echo "<pre>";
 print_r($user);
-echo "</pre>";
+echo "</pre>";*/
 
 //Si existe el usuario se muestra un mensaje de Bienvenida, sino se muestra que el usuario no existe
 if ($filas == 1){
@@ -33,7 +33,8 @@ if ($filas == 1){
         header("Location:../realizarpago.php");
         exit();   
     }
-    header("Location:../index.php");
+    header("Location:../galeria.php");
+    //header("Location:../index.php");
 }        
 else{    
     echo "usuario o clave incorrecto";

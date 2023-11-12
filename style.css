@@ -50,3 +50,13 @@ footer{
 {
     height: 600px;
 }
+
+.format{
+    border:3px solid gold;    
+    object-fit: cover;    
+    height: 50%;
+}
+
+.height-custom{
+    height: 280px;
+}

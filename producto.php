@@ -13,19 +13,12 @@ $result = mysqli_query($conexion, $sql);
 $reg = mysqli_fetch_assoc($result);
 
 /*echo "<pre>";
-
-print_r($reg);	
-
+print_r($reg);
 echo "</pre>";	*/
-
 /*
 echo "<pre>";
 	print_r($_SESSION);
 echo "</pre>";*/
-
-
-
-
 
 include 'sections/header.php';
 ?>

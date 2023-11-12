@@ -26,9 +26,11 @@ echo "</pre>";*/
 				<label for="">Apellido</label>	
 				<input type="text" class="form-control" name="apellido">
 			</div>
-			<div class="mb-3">
-				<label for="">Domicilio</label>	
-				<input type="text" class="form-control" name="domicilio">
+			<label for="">Domicilio</label>	
+			<div class="mb-3 d-flex">				
+				<input type="text" class="form-control w-50" name="calle" placeholder="calle">
+				<input type="text" class="form-control w-25" name="num" placeholder="#">
+				<input type="text" class="form-control" name="loc" placeholder="Localidad">				
 			</div>
 			<div class="mb-3">
 				<label for="">Codigo Postal</label>	

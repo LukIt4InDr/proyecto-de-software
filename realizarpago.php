@@ -1,7 +1,7 @@
 <?php 
-session_start();/*
-echo "<pre>";
-print_r($_SESSION);
+session_start();
+/*echo "<pre>";
+var_dump(isset($_SESSION["datosDestinatario"]));
 echo "</pre>";*/
 include 'sections/header.php';
 
@@ -31,36 +31,69 @@ include 'sections/header.php';
 		if(isset($_SESSION['message'])){
 			echo $_SESSION['message'];
 			unset($_SESSION['message']);
+			unset($_SESSION['codigo']);
 		}
 
 	 ?>
 
  	<?php if(isset($_SESSION['pago'])){ ?>
  	<div class="row">
- 		<h2 class="text-center">Checkout Pro</h2>
-		<div class="card w-50 mx-auto">			
-	  		<div class="card-body">
-	  			<p>Dinero en Mercadopago <img src="imagenes/mercadopago.png" alt=""width="8%"></p>	  			
-	  			<div class="d-flex justify-content-around">
-	  				<p class="card-title fw-bold">Venta:</p>
-			    	<p class="card-title fw-bold"><?php echo $_SESSION['total']?></p>	
-	  			</div>
-			    <div class="d-flex justify-content-around">
-			    	<p class="card-text fw-bold">Pagar:</p>
-			    	<p class="card-text fw-bold"><?php echo $_SESSION['total']?></p>	
-			    </div>	
-	  			<p>Cuotas</p>
-	  			<form action="app/confirmarPago.php" method="POST">
-	  				<select name="" id="" class="form-select my-2">
-		  				<option value="">Eligir</option>
-		  				<option value="">3 cuotas</option>
-		  				<option value="">6 cuotas</option>
-		  				<option value="">12 cuotas</option>
-	  				</select>	  					    
-			    	<input type="submit" name="pay" class="btn btn-primary w-100" value="pagar">
-	  			</form>	  			
-	  		</div>	
+ 		<div class="col-sm-6">
+ 			<h2>Detalle de la Compra</h2>
+ 			<hr>
+ 			<table class="table">
+			  <thead>
+			    <tr>	      
+			      <th scope="col">Nombre del producto</th>	      
+			      <th scope="col">Subtotal</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	<?php foreach ($_SESSION['carrito'] as $cart) { ?>
+			    <tr>	      
+			      <td><?php echo $cart['nombre_producto'] ?></td>	      	      
+			      <td>$ <?php echo $cart['subtotal'] ?></td>
+			    </tr>
+			    	<?php if(isset($cart['tarjeta'])){ ?>
+			    <tr>
+			    	<td>Tarjeta: <?php echo $cart['tarjeta']['nombreCard'] ?></td>
+			    	<td>$ <?php echo $cart['tarjeta']['precioCard'] ?></td>
+			    </tr>
+			    	<?php }?>
+			    <?php }?>
+			    <tr>
+			    	<td>Total:</td>
+			    	<td>$ <?php echo $_SESSION['total'] ?></td>
+			    </tr>	
+			  </tbody>
+			</table>
  		</div>
+ 		<div class="col-sm-6">
+ 			<h2 class="text-center">Checkout Pro</h2>
+			<div class="card">			
+		  		<div class="card-body">
+		  			<p>Dinero en Mercadopago <img src="imagenes/mercadopago.png" alt=""width="8%"></p>	  			
+		  			<div class="d-flex justify-content-around">
+		  				<p class="card-title fw-bold">Venta:</p>
+				    	<p class="card-title fw-bold"><?php echo $_SESSION['total']?></p>	
+		  			</div>
+				    <div class="d-flex justify-content-around">
+				    	<p class="card-text fw-bold">Pagar:</p>
+				    	<p class="card-text fw-bold"><?php echo $_SESSION['total']?></p>	
+				    </div>	
+		  			<p>Cuotas</p>
+		  			<form action="app/confirmarPago.php" method="POST">
+		  				<select name="" id="" class="form-select my-2">
+			  				<option value="">Eligir</option>
+			  				<option value="">3 cuotas</option>
+			  				<option value="">6 cuotas</option>
+			  				<option value="">12 cuotas</option>
+		  				</select>	  					    
+				    	<input type="submit" name="pay" class="btn btn-primary w-100" value="pagar">
+		  			</form>	  			
+		  		</div>	
+	 		</div>
+ 		</div> 		
  	</div>
  	<?php } ?>
 </div>

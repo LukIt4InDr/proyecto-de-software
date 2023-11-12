@@ -3,6 +3,35 @@
 session_start();
 
 include_once 'sections/header.php';
+
+if(isset($_POST['card'])){
+
+	$idCard = $_POST['id_card'];
+	$nombreCard = $_POST['nombre_card'];
+	$precioCard = $_POST['precio_card'];
+
+	$tarjetaCard = ["idCard"=>$idCard, "nombreCard"=>$nombreCard, "precioCard"=>$precioCard];
+
+	if(isset($_SESSION['carrito'])){
+		$_SESSION['carrito'][0]['tarjeta'] = $tarjetaCard;
+		unset($_SESSION['total']);
+		$_SESSION['total'] = $_SESSION['carrito'][0]['subtotal'] + $_SESSION['carrito'][0]['tarjeta']["precioCard"];
+	}
+}
+
+if(isset($_POST['card-custom'])){
+	$designCard = $_POST['tarjeta'];
+	$precioCard = $_POST['precio'];
+	$texto = $_POST['mensaje'];
+
+	$tarjetaCard = ["nombreCard"=>$designCard, "precioCard"=>$precioCard, "mensaje"=>$texto];
+
+	if(isset($_SESSION['carrito'])){
+		$_SESSION['carrito'][0]['tarjeta'] = $tarjetaCard;
+		unset($_SESSION['total']);
+		$_SESSION['total'] = $_SESSION['carrito'][0]['subtotal'] + $_SESSION['carrito'][0]['tarjeta']["precioCard"];
+	}
+}
 /*
 echo "<pre>";
 print_r($_SESSION);
@@ -20,25 +49,20 @@ echo "</pre>";*/
 	  <tbody>
 	  	<?php foreach ($_SESSION['carrito'] as $cart) { ?>
 	    <tr>	      
-	      <td><?php echo $cart['nombre_producto'] ?></td>	      
-	      <td><?php echo $cart['subtotal'] ?></td>
+	      <td><?php echo $cart['nombre_producto'] ?></td>	      	      
+	      <td>$ <?php echo $cart['subtotal'] ?></td>
 	    </tr>
+	    	<?php if(isset($cart['tarjeta'])){?>
+	    <tr>
+	    	<td>Tarjeta: <?php echo $cart['tarjeta']['nombreCard'] ?></td>
+	    	<td>$ <?php echo $cart['tarjeta']['precioCard'] ?></td>
+	    </tr>
+	    	<?php }?>
 	    <?php }?>
 	    <tr>
 	    	<td>Total:</td>
-	    	<td><?php echo $_SESSION['total'] ?></td>
-	    </tr>
-	    <!--<tr>
-	      <th scope="row">2</th>
-	      <td>Jacob</td>
-	      <td>Thornton</td>
-	      <td>@fat</td>
-	    </tr>
-	    <tr>
-	      <th scope="row">3</th>
-	      <td colspan="2">Larry the Bird</td>
-	      <td>@twitter</td>
-	    </tr>-->
+	    	<td>$ <?php echo $_SESSION['total'] ?></td>
+	    </tr>	
 	  </tbody>
 	</table>
 	<div class="mt-3 d-flex justify-content-end">

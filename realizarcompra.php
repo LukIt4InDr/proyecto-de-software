@@ -29,18 +29,7 @@ echo "</pre>";*/
 	    <tr>
 	    	<td colspan="3">Total:</td>
 	    	<td><?php echo $_SESSION['total'] ?></td>
-	    </tr>
-	    <!--<tr>
-	      <th scope="row">2</th>
-	      <td>Jacob</td>
-	      <td>Thornton</td>
-	      <td>@fat</td>
-	    </tr>
-	    <tr>
-	      <th scope="row">3</th>
-	      <td colspan="2">Larry the Bird</td>
-	      <td>@twitter</td>
-	    </tr>-->
+	    </tr>	   
 	  </tbody>
 	</table>
 	<div class="mt-3 d-flex justify-content-end">

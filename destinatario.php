@@ -9,7 +9,7 @@ echo "</pre>";*/
  ?>
 <div class="container">
 	<div class="row mt-5">
-		<form action="app/datosEnvio.php" method="POST" class="border mx-auto w-50">	
+		<form action="app/datosEnvio.php" method="POST" class="border mx-auto w-75">	
 			<div class="mb-3">
 				<label for="">Nombre del Destinatario</label>		
 				<input type="text" class="form-control" name="nombreDest">
@@ -29,9 +29,11 @@ echo "</pre>";*/
 	    			<?php }?>
 				</table>
 			</div>
-			<div class="mb-3">
-				<label for="">Domicilio</label>	
-				<input type="text" class="form-control" name="domDest">
+			<label for="">Domicilio</label>	
+			<div class="mb-3 d-flex">				
+				<input type="text" class="form-control w-50" name="calle" placeholder="calle">
+				<input type="text" class="form-control w-25" name="num" placeholder="#">
+				<input type="text" class="form-control" name="loc" placeholder="Localidad">				
 			</div>
 			<div class="mb-3">
 				<label for="">Codigo Postal</label>	
@@ -47,12 +49,13 @@ echo "</pre>";*/
 			</div>
 			<div class="mb-3">
 				<input type="submit" name="btnDest" class="btn btn-primary" value="continuar">
-				<a href="" class="btn btn-info">Personalizar tarjeta</a>
-				<a href="" class="btn btn-info">Elegir tarjeta prediseñada</a>
+				<?php if(isset($_SESSION['datosDestinatario'])){ ?>
+				<a href="personalizar_tarjeta.php" class="btn btn-info">Personalizar tarjeta</a>
+				<a href="elegir_tarjeta.php" class="btn btn-info">Elegir tarjeta prediseñada</a>
+				<?php }?>
 			</div>
 		</form>	
 	</div>
 </div>
-
 
 <?php require_once 'sections/footer.php'; ?>

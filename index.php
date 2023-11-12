@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -8,11 +8,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
     <link rel="stylesheet" href="style.css">
-    <!-- <script defer src="script.js"></script> -->
+   <script defer src="script.js"></script>
 
     <title>Floreria Petals</title>
 </head>
-<body>
+<body>-->
  
 <?php
 include 'sections/header.php';

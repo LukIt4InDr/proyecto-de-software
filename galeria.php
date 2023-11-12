@@ -1,23 +1,20 @@
 <?php 
-//include 'app/conexion.php';
+include 'app/conexion.php';
 //cadena de conexion
-$conexion = mysqli_connect("localhost", "root","","floreria");
+/*$conexion = mysqli_connect("localhost", "root","","floreria");
 if (!$conexion)
     die("No existe la base de datos" .mysqli_connect_error()); //si no existe la base de datos
+    */
 
 $sql = "SELECT * FROM producto_catalogo";
 
 $result = mysqli_query($conexion,$sql);
-
 // array = [1,2,3,4] o array2 = ["primero"=>1,"segundo"=>2,""] (array asociativo)
 /*echo "<pre>";
 while($reg = mysqli_fetch_assoc($result)){	
 	print_r($reg);	
 }  
 echo "</pre>";	*/
-
-
-
 
 include 'sections/header.php';
 ?>
@@ -35,18 +32,7 @@ include 'sections/header.php';
                         </div>
                     </div>
                 </div>
-            	<?php }	?>
-
-                <!--<div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <img src="imagenes/2.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">B - Arreglo Multicolor de Rosas y Flores de estacion</h5>
-                            <p class="card-text">Precio: 6000</p>
-                            <a href="#" class="btn btn-primary">Añadir al carrito</a>
-                        </div>
-                    </div>
-                </div> -->
+            	<?php }	?>               
             </div>
         </div>
     
