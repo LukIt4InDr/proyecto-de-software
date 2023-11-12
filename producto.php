@@ -42,7 +42,7 @@ include 'sections/header.php';
 			<?php if(isset($_SESSION['carrito'])){ ?>
 			<div class="mb-3 mt-3">
 				<a href="realizarcompra.php" class="btn btn-success">Ver compra</a>
-				<a href="index.php" class="btn btn-info">Comprar distintos arreglos florales</a>
+				<a href="galeria.php" class="btn btn-info">Comprar distintos arreglos florales</a>
 			</div>
 			<?php } ?>
 		</div>
