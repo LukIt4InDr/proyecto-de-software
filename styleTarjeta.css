@@ -1,0 +1,14 @@
+.tarjetaContenedor {
+    position: relative;
+    text-align: center;
+}
+  
+.tarjetaDiseno {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+font-size: 50px;
+color: black;
+width: 400px;
+}
