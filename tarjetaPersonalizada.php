@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,48 +21,54 @@
 
 
 
-         <!--Menu-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-        <a class="navbar-brand" href="index.php"><img src="imagenes/petals-logo.png" alt="petals-logo" id="logo"></a>
+        <!--Menu-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.php"><img src="imagenes/petals-logo.png" alt="petals-logo"
+                        id="logo"></a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.php">Inicio</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.php">Inicio</a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="galeria.php">Arreglo floral</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="galeria.php">Arreglo floral</a>
+                        </li>
 
-                </ul>
+                    </ul>
 
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                    
-                    
-                    <a href="login.php" class="btn btn-primary btn-lg" type="submit" id="iniciar-sesion">Login</a>
-                </form>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
 
+
+                        <a href="login.php" class="btn btn-primary btn-lg" type="submit" id="iniciar-sesion">Login</a>
+                    </form>
+
+                </div>
+            </div>
+        </nav>
+
+        <!--tarjeta-->
+        <div class="tarjetaContenedor">
+            <img src="imagenes/diseños/<?php echo $_POST["tarjeta"] ?>.jpg">
+            <div class="tarjetaDiseno">
+                <?php echo $_POST["mensaje"] ?>
             </div>
         </div>
-    </nav>
 
-    <!--tarjeta-->
-    <div class="tarjetaContenedor">
-        <img src="imagenes/diseños/<?php echo $_POST["tarjeta"] ?>.jpg">
-        <div class="tarjetaDiseno">
-            <?php echo $_POST["mensaje"] ?>
+        <div>
+            <a href="datoscompra.php" class="btn btn-primary btn-lg justify-content-center" id="botonContinuar">Continuar</a>
         </div>
-    </div>
 
-<?php require_once 'sections/footer.php'; ?>
+
+        <?php require_once 'sections/footer.php'; ?>
