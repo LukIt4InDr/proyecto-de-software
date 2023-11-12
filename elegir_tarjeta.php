@@ -18,7 +18,7 @@ include 'sections/header.php';
 		<div class="col-sm-4">			
 			<div class="card">
 			  	<a href="tarjeta.php?id=<?php echo $reg["ID_Tarjeta"] ?>">
-				<img src="imagenes/<?php echo $reg["imagen"] ?>" class="card-img-top" alt="..." width="100%">
+				<img src="imagenes/<?php echo $reg["imagen"] ?>" class="card-img-top" alt="..." height="350px">
 			</a>
 				<div class="card-body">
 				    <h5 class="card-title"><?php echo $reg["Nombre"] ?></h5>
