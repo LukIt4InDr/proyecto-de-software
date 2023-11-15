@@ -1,10 +1,10 @@
 <?php
-$flag = 0;
 $msg = null;
 if(isset($_POST['submit'])){
     session_start();
+
     //cadena de conexion
-    $conexion = mysqli_connect("localhost", "root","","floreria");
+    $conexion = mysqli_connect("localhost", "root","","floreria3");
 
     //si no existe la base de datos
     if (!$conexion){
@@ -13,7 +13,6 @@ if(isset($_POST['submit'])){
 
     $usuario = $_POST['user'];
     $clave = $_POST['pswd'];
-    $email = $_POST['email'];
 
     $selectUser = "select * from USUARIO where Nombre_de_Usuario = '{$usuario}'";
     $queryUser = mysqli_query($conexion, $selectUser);
@@ -21,24 +20,25 @@ if(isset($_POST['submit'])){
     $filasUser = mysqli_num_rows($queryUser);
     if(isset($_POST['submit'])){
         if ($filasUser == 1){
-            $flag = 0;
             $msg = '<div class="error">El Nombre de Usuario ya existe.</div>';
         } else{
-            $selectEmail = "select * from CLIENTE_EMPRESA where Email = '{$email}'";
-            $queryEmail = mysqli_query($conexion, $selectEmail);
-    
-            $filasEmail = mysqli_num_rows($queryEmail);
-    
-            if($filasEmail == 1){
-                $flag = 0;
-                $msg = '<div class="error">El Email ya esta en uso.</div>';
-            } else{
-                $flag = 2;
+            $_SESSION['usuario'] = $usuario;
+            $_SESSION['clave'] = $clave;
 
-                $_SESSION['usuario'] = $usuario;
-                $_SESSION['clave'] = $clave;
-                $_SESSION['email'] = $email;
-                //header('Location: ../');
+            $selectIDuser = "select max(IDUsuario) as max from USUARIO";
+            $queryUser = mysqli_query($conexion, $selectIDuser);
+            $filasUser = mysqli_fetch_array($queryUser);
+            $ultimaIDuser = $filasUser['max'];
+            $userID = $ultimaIDuser + 1;
+
+            $_SESSION['id'] = 1;
+
+            $insertUser = "insert into USUARIO (Nombre_de_Usuario, Password, IDUsuario, IDPerfil_Cargo) values ('$usuario', '$clave', '$userID', 1)";
+
+            if (mysqli_query($conexion, $insertUser) === TRUE) {
+                header("Location:../");
+            } else {
+                echo "Error: " . $insertUser . "<br>" . $conexion->error;
             }
         }
     }
@@ -73,137 +73,37 @@ if(isset($_POST['submit'])){
         </nav>
     </header>
 
-    <?php
-    switch($flag){
-        case 0: ?>
-            <div class="container mt-5" id="sign-up">
-                <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 card mt-5" id="card-sign-up">
-                    <div class="card-body">
-                        <h1>Registrarse</h1>
-                        <?php echo $msg; ?>
-                        <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" id="formu">
-                            <div class="mt-4">
-                                <label for="user" class="form-label">Usuario:</label>
-                                <input type="text" name="user" id="user" class="form-control" placeholder="Ingrese Usuario" required>
-                                <div class="invalid-feedback" id="usuarioInvalido">
-                                    Ingrese el Usuario.
-                                </div>
-                            </div>
-                            <div class="mt-4">
-                                <label for="pswd" class="form-label">Contraseña:</label>
-                                <input type="password" name="pswd" id="pswd" class="form-control" placeholder="Ingrese Contraseña" required>
-                                <div class="invalid-feedback" id="contraseñaInvalida">
-                                    Ingrese la Contraseña.
-                                </div>
-                            </div>
-                            <div class="mt-4">
-                                <label for="pswdR" class="form-label">Confirme Contraseña:</label>
-                                <input type="password" name="pswdR" id="pswdR" class="form-control" placeholder="Confirme Contraseña" required>
-                                <div class="invalid-feedback" id="contraseñaCInvalida">
-                                    La contraseña no coincide.
-                                </div>
-                            </div>
-
-                            <div class="mt-4">
-                                <label for="email" class="form-label">Email:</label>
-                                <input type="email" name="email" id="email" class="form-control" placeholder="Ingrese Email" required>
-                                <div class="invalid-feedback" id="emailInvalido">
-                                    Ingrese el Email.
-                                </div>
-                            </div>
-
-                            <button type="submit" name="submit" class="btn btn-primary mt-4 mb-5">Registrarse</button>
-                        </form>
+    <div class="container mt-5" id="sign-up">
+        <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 card mt-5" id="card-sign-up">
+            <div class="card-body">
+                <h1>Registrarse</h1>
+                <?php echo $msg; ?>
+                <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" id="formu">
+                    <div class="mt-4">
+                        <label for="user" class="form-label">Usuario:</label>
+                        <input type="text" name="user" id="user" class="form-control" placeholder="Ingrese Usuario" required>
+                        <div class="invalid-feedback" id="usuarioInvalido">
+                            Ingrese el Usuario.
+                        </div>
                     </div>
-                </div>
-            </div>
-    <?php
-            break;
-        case 2: ?>
-            <div class="container mt-5" id="sign-up">
-                <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 card mt-5" id="card-sign-up">
-                    <div class="card-body">
-                        <h1>Registrarse</h1>
-                        <form method="post" action="sendToDB.php" id="formu">
-                            <div class="mt-4">
-                                <label for="name" class="form-label">Nombre:</label>
-                                <input type="text" name="name" id="name" class="form-control" placeholder="Ingrese Nombre" required>
-                                <div class="invalid-feedback" id="nombreInvalido">
-                                    Ingrese el Nombre.
-                                </div>
-                            </div>
-                            <div class="mt-4">
-                                <label for="phone" class="form-label">Teléfono:</label>
-                                <input type="number" name="phone" id="phone" class="form-control" placeholder="Ingrese Teléfono" required>
-                                <div class="invalid-feedback" id="phoneInvalido">
-                                    Ingrese el Teléfono.
-                                </div>
-                            </div>
-                            <div class="mt-4">
-                                <label for="direc" class="form-label">Direccíon:</label>
-                                <input type="text" name="direc" id="direc" class="form-control" placeholder="Ingrese Direccíon" required>
-                                <div class="invalid-feedback" id="direcInvalido">
-                                    Ingrese el Direccíon.
-                                </div>
-                            </div>
-                            <div class="mt-4">
-                                <label for="postal" class="form-label">Código Postal:</label>
-                                <input type="number" name="postal" id="postal" class="form-control" placeholder="Ingrese Código Postal" required>
-                                <div class="invalid-feedback" id="postalInvalido">
-                                    Ingrese el Código Postal.
-                                </div>
-                            </div>
-                            <div class="mt-4">
-                                <label for="dni" class="form-label">DNI:</label>
-                                <input type="number" name="dni" id="dni" class="form-control" placeholder="Ingrese DNI" required>
-                                <div class="invalid-feedback" id="dniInvalido">
-                                    Ingrese el DNI.
-                                </div>
-                            </div>
-
-                            <button type="submit" name="submit" class="btn btn-primary mt-4 mb-5">Registrarse</button>
-                        </form>
+                    <div class="mt-4">
+                        <label for="pswd" class="form-label">Contraseña:</label>
+                        <input type="password" name="pswd" id="pswd" class="form-control" placeholder="Ingrese Contraseña" required>
+                        <div class="invalid-feedback" id="contraseñaInvalida">
+                            Ingrese la Contraseña.
+                        </div>
                     </div>
-                </div>
+                    <div class="mt-4">
+                        <label for="pswdR" class="form-label">Confirme Contraseña:</label>
+                        <input type="password" name="pswdR" id="pswdR" class="form-control" placeholder="Confirme Contraseña" required>
+                        <div class="invalid-feedback" id="contraseñaCInvalida">
+                            La contraseña no coincide.
+                        </div>
+                    </div>
+                    <button type="submit" name="submit" class="btn btn-primary mt-4 mb-5">Registrarse</button>
+                </form>
             </div>
-    <?php 
-            break;
-    }
-    ?>   
+        </div>
+    </div>
 </body>
 </html>
-                            <!-- <div class="mt-4">
-                                <label for="name" class="form-label">Nombre:</label>
-                                <input type="text" name="name" id="name" class="form-control" placeholder="Ingrese Nombre" required>
-                                <div class="invalid-feedback" id="nombreInvalido">
-                                    Ingrese el Nombre.
-                                </div>
-                            </div>
-                            <div class="mt-4">
-                                <label for="phone" class="form-label">Teléfono:</label>
-                                <input type="number" name="phone" id="phone" class="form-control" placeholder="Ingrese Teléfono" required>
-                                <div class="invalid-feedback" id="phoneInvalido">
-                                    Ingrese el Teléfono.
-                                </div>
-                            </div>
-                            <div class="mt-4">
-                                <label for="direc" class="form-label">Direccíon:</label>
-                                <input type="text" name="direc" id="direc" class="form-control" placeholder="Ingrese Direccíon" required>
-                                <div class="invalid-feedback" id="direcInvalido">
-                                    Ingrese el Direccíon.
-                                </div>
-                            </div>
-                            <div class="mt-4">
-                                <label for="postal" class="form-label">Código Postal:</label>
-                                <input type="number" name="postal" id="postal" class="form-control" placeholder="Ingrese Código Postal" required>
-                                <div class="invalid-feedback" id="postalInvalido">
-                                    Ingrese el Código Postal.
-                                </div>
-                            </div>
-                            <div class="mt-4">
-                                <label for="dni" class="form-label">DNI:</label>
-                                <input type="number" name="dni" id="dni" class="form-control" placeholder="Ingrese DNI" required>
-                                <div class="invalid-feedback" id="dniInvalido">
-                                    Ingrese el DNI.
-                                </div>
-                            </div> -->

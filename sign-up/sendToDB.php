@@ -1,5 +1,6 @@
 <?php
-if(isset($_POST['submit'])){
+echo "a";
+if($_SESSION['flag'] === 1){
     session_start();
     //cadena de conexion
     $conexion = mysqli_connect("localhost", "root","","floreria");
@@ -11,34 +12,26 @@ if(isset($_POST['submit'])){
 
     $usuario = $_SESSION['usuario'];
     $clave = $_SESSION['clave'];
-    $email = $_SESSION['email'];
 
-    $name = explode(" ", $_POST['name']);
-    $nombre = $name[0];
-    $apellido = $name[1];
-    $telefono = $_POST['phone'];
-    $direccion = $_POST['direc'];
-    $postal = $_POST['postal'];
-    $dni = $_POST['dni'];
+    $selectIDuser = "select max(IDUsuario) as max from USUARIO";
+    $queryUser = mysqli_query($conexion, $selectIDuser);
+    $filasUser = mysqli_fetch_array($queryUser);
+    $ultimaIDuser = $filasUser['max'];
+    $userID = $ultimaIDuser + 1;
 
-    $selectID = "select max(IDUsuario) as max from USUARIO";
-    $queryUser = mysqli_query($conexion, $selectID);
-    $filas = mysqli_fetch_array($queryUser);
-    $ultimaID = $filas['max'];
-    $userID = $ultimaID + 1;
+    // $selectIDCliente = "select max(IDCliente_Empresa) as max from CLIENTE_EMPRESA";
+    // $queryCliente = mysqli_query($conexion, $selectIDCliente);
+    // $filasCliente = mysqli_fetch_array($queryCliente);
+    // $ultimaIDCliente = $filasCliente['max'];
+    // $clienteID = $ultimaIDCliente + 1;
 
     $_SESSION['id'] = 1;
 
     $insertUser = "insert into USUARIO (Nombre_de_Usuario, Password, IDUsuario, IDPerfil_Cargo) values ('$usuario', '$clave', '$userID', 1)";
 
     if (mysqli_query($conexion, $insertUser) === TRUE) {
-        $insertClient = "insert into CLIENTE_EMPRESA (Nombre, ApellidoDeCliente, Email, Telefono, Calle, Numero, Localidad, Partido, CP, Usuario, ID_Empleado) values ('$nombre', '$apellido', '$email', '$telefono', '$direccion', '$direccion', '$direccion', '$direccion', '$postal', '$usuario', 100)";
-
-        if(mysqli_query($conexion, $insertClient) === TRUE){
-            header("Location:../");
-        } else{
-            echo "Error: " . $insertClient . "<br>" . $conexion->error;
-        }
+        echo "a";
+        header("Location:../");
     } else {
         echo "Error: " . $insertUser . "<br>" . $conexion->error;
     }
