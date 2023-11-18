@@ -5,26 +5,26 @@ include 'sections/header.php';
 <section class="container">
 	<h2 class="text-center">Personalizar Tarjeta</h2>
 	<hr>
-	<form action="tarjetaPersonalizada.php" method="POST">
+	<form action="tarjetaPersonalizada.php" method="get">
 		<div class="row height-custom">
 			<input type="hidden" name="precio" value="3000">
 			
 			<div class="col-sm-4">
-				<img src="imagenes/diseños/tarjeta1.jpg" alt="tarjeta1" width="100%" class="format">
+				<img src="imagenes/diseños/tarjeta3.jpg" alt="tarjeta1" width="100%" class="format">
 				<div class="d-flex justify-content-center mt-2">
 					<input type="radio" name="tarjeta" value="tarjeta1"> Tarjeta 1
 				</div> 
 				
 			</div>
 			<div class="col-sm-4">
-				<img src="imagenes/diseños/tarjeta2.jpg" alt="tarjeta2" width="100%" class="format">
+				<img src="imagenes/diseños/tarjeta4.jpg" alt="tarjeta2" width="100%" class="format">
 				<div class="d-flex justify-content-center mt-2">
 					<input type="radio" name="tarjeta" value="tarjeta2"> Tarjeta 2
 				</div>
 				
 			</div>
 			<div class="col-sm-4">
-				<img src="imagenes/diseños/tarjeta3.jpg" alt="tarjeta3" width="100%" class="format">
+				<img src="imagenes/diseños/tarjeta5.jpg" alt="tarjeta3" width="100%" class="format">
 				<div class="d-flex justify-content-center mt-2">
 					<input type="radio" name="tarjeta" value="tarjeta3"> Tarjeta 3
 				</div>				

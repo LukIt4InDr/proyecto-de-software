@@ -2,10 +2,10 @@
 
 session_start();
 
-if(isset($_POST['card-custom'])){
-    $designCard = $_POST['tarjeta'];
-    $precioCard = $_POST['precio'];
-    $texto = $_POST['mensaje'];
+if(isset($_GET['card-custom'])){
+    $designCard = $_GET['tarjeta'];
+    $precioCard = $_GET['precio'];
+    $texto = $_GET['mensaje'];
 
     $tarjetaCard = ["nombreCard"=>$designCard, "precioCard"=>$precioCard, "mensaje"=>$texto];
 
@@ -83,9 +83,9 @@ include_once 'sections/header.php';
 
         <!--tarjeta-->
         <div class="tarjetaContenedor">
-            <img src="imagenes/diseños/<?php echo $_POST["tarjeta"] ?>.jpg" with="100%">
+            <img src="imagenes/<?php echo $_GET["tarjeta"] ?>.jpg" with="100%">
             <div class="tarjetaDiseno">
-                <?php echo $_POST["mensaje"] ?>
+                <?php echo $_GET["mensaje"] ?>
             </div>
         </div>
 
