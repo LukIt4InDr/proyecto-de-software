@@ -33,7 +33,7 @@ include 'sections/header.php';
 			<p>Cantidad: <?php echo  $reg["Descripcion_del_AF"] ?> cada ramo</p>
 			<form action="app/cart.php" method="POST">
 				<div class="mb-3">
-					<input type="number" class="form-control w-50" name="cantidad" placeholder="ingrese cantidad" required>
+					<input type="number" class="form-control w-50" name="cantidad" placeholder="ingrese cantidad" required min="1" value="1">
 				</div>
 				<input type="hidden" name="precio" value="<?php echo $reg["Precio_del_AF"] ?>">
 				<input type="hidden" name="prodId" value="<?php echo $reg["IDProducto_Catalogo"] ?>">				
