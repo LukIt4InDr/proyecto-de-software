@@ -15,8 +15,19 @@
 <body>-->
  
 <?php
+session_start();
 include 'sections/header.php';
 ?>
+<div class="container">
+    <div class="row">
+       <?php
+       if(isset($_SESSION['message'])){
+        echo $_SESSION['message'];
+        unset($_SESSION['message']);
+       }
+        ?>
+    </div>
+</div>
 
     <section id="hero">
         <div class="container home">

@@ -1,9 +1,10 @@
 <?php 
 session_start();
-/*echo "<pre>";
-var_dump(isset($_SESSION["datosDestinatario"]));
-echo "</pre>";*/
 include 'sections/header.php';
+echo "<pre>";
+//print_r($_SESSION);
+//var_dump(isset($_SESSION["datosDestinatario"]));
+echo "</pre>";
 
 ?>
 <div class="container">

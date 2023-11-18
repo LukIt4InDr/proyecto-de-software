@@ -25,10 +25,11 @@ if(isset($_POST['pay'])){
 		mysqli_query($conexion, $sql_venta); 
 
 		foreach($_SESSION['carrito'] as $cart){
-			$cantidad = $cart['cantidad'];
+			$cantidad = $cart['cantidad'];			
 			$precio = $cart['precio'];
+			$idprod = $cart['prod_id']; 
 
-			$sql = "insert into pedido(Cantidad, Precio, Fecha_Entrega, Estado_Actual, ID_Empleado) values($cantidad,$precio,'$fechaEntrega','pendiente',100)";
+			$sql = "insert into pedido(Cantidad, Precio, Fecha_Entrega, Estado_Actual, IDProducto_Catalogo) values($cantidad,$precio,'$fechaEntrega','pendiente',$idprod)";
 
 			mysqli_query($conexion, $sql);
 		}
@@ -77,7 +78,7 @@ if(isset($_POST['pay'])){
 
 		$_SESSION['codigo'] = $codigo_pedido;
 
-		$_SESSION['message'] = '<div class="alert alert-success alert-dismissible fade show" role="alert">Gracias por tu compra. Tu pedido se encuentra en Estado Pendiente bajo el código número ' . $_SESSION['codigo'] . '.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div><div class="d-flex justify-content-end"><a href="index.php" class="btn btn-primary">Continuar</a></div>';
+		$_SESSION['message'] = '<div class="alert alert-success alert-dismissible fade show" role="alert">Gracias por tu compra. Tu pedido se encuentra en Estado Pendiente bajo el código número ' . $_SESSION['codigo'] . ' Cuando esté en camino te enviaremos un e-mail para que puedas hacer el seguimiento.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div><div class="d-flex justify-content-end"><a href="index.php" class="btn btn-primary">Continuar</a></div>';
 
 		header("Location:../realizarpago.php");
 

@@ -8,7 +8,7 @@ $cantidad = $_POST['cantidad'];
 $precio = $_POST['precio'];
 $subtotal = $cantidad * $precio;
 
-$cart = ["cantidad"=>$cantidad, "nombre_producto"=>$nombreProducto,"precio"=>$precio, "subtotal"=>$subtotal];
+$cart = ["cantidad"=>$cantidad, "prod_id"=>$prod_id ,"nombre_producto"=>$nombreProducto,"precio"=>$precio, "subtotal"=>$subtotal];
 
 if(empty($_SESSION['carrito'])){
 	

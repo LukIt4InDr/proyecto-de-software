@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-11-2023 a las 03:04:16
+-- Tiempo de generación: 15-11-2023 a las 02:36:40
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -18,8 +18,28 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `floreria`
+-- Base de datos: `floreria3`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `calificacion`
+--
+
+CREATE TABLE `calificacion` (
+  `id_calificacion` int(11) NOT NULL,
+  `puntaje` int(11) NOT NULL,
+  `comentario` text DEFAULT NULL,
+  `id_pedido` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `calificacion`
+--
+
+INSERT INTO `calificacion` (`id_calificacion`, `puntaje`, `comentario`, `id_pedido`) VALUES
+(1, 2, 'muy mal producto', 89);
 
 -- --------------------------------------------------------
 
@@ -51,7 +71,15 @@ INSERT INTO `cliente_empresa` (`Nombre`, `ApellidoDeCliente`, `Email`, `Telefono
 ('Maria', 'Gomes', 'maria@gmail.com', 1177778888, 'Laprida', 525, 'La plata', 'La plata', 1002, 52, 'cliente1'),
 ('Maria', 'Gomes', 'maria@gmail.com', 1177778888, 'Laprida', 152, 'La plata', 'La plata', 1002, 53, 'cliente1'),
 ('Maria', 'Gomes', 'maria@gmail.com', 1155555555, 'laprida', 1956, 'Avellaneda', 'Avellaneda', 1862, 54, 'cliente1'),
-('Maria', 'Gomes', 'maria@gmail.com', 1177775555, 'laprida', 1956, 'Avellaneda', 'Avellaneda', 1244, 55, 'cliente1');
+('Maria', 'Gomes', 'maria@gmail.com', 1177775555, 'laprida', 1956, 'Avellaneda', 'Avellaneda', 1244, 55, 'cliente1'),
+('Maria', 'Gomes', 'maria@gmail.com', 1177775555, 'laprida', 1956, 'Avellaneda', 'Avellaneda', 1234, 56, 'cliente1'),
+('Maria', 'Gomes', 'maria@gmail.com', 1177775555, 'Belgrano', 1956, 'Avellaneda', 'Avellaneda', 1012, 57, 'cliente1'),
+('Maria', 'Gomes', 'maria@gmail.com', 1177775555, 'laprida', 1956, 'Avellaneda', 'Avellaneda', 1234, 58, 'cliente1'),
+('Maria', 'Gomes', 'maria@gmail.com', 1177777777, 'Belgrano', 1956, 'Avellaneda', 'Avellaneda', 1234, 59, 'cliente1'),
+('Maria', 'Gomes', 'maria@gmail.com', 1177775555, 'laprida', 1956, 'Avellaneda', 'Avellaneda', 1234, 60, 'cliente1'),
+('Maria', 'Gomes', 'maria@gmail.com', 1155555555, 'Belgrano', 1956, 'Avellaneda', 'Avellaneda', 1033, 61, 'cliente1'),
+('Maria', 'Gomes', 'maria@gmail.com', 1177777777, 'laprida', 1956, 'Avellaneda', 'Avellaneda', 1234, 62, 'cliente1'),
+('Maria', 'Gomes', 'maria@gmail.com', 1155555555, 'laprida', 1956, 'Avellaneda', 'Avellaneda', 1033, 63, 'cliente1');
 
 -- --------------------------------------------------------
 
@@ -81,12 +109,14 @@ CREATE TABLE `destinatario` (
 --
 
 INSERT INTO `destinatario` (`Codigo_de_Pedido`, `Nombre`, `Apellido_destinatario`, `Telefono`, `Email`, `Calle`, `Numero`, `Localidad`, `Partido`, `CP`, `Producto`, `Observacion`, `IDDestinatario`, `IDPedido`) VALUES
-(50, 'Florencia', 'Gomes', 1167777777, 'maria@gmail.com', 'Laprida', 58, 'Avellenada', 'Zona Sur', 2000, 'Arreglo de fresias perfumadas', 'Entrega Unica', 0, 2),
-(50, 'Juan', 'ortega', 1167810195, 'juor@gmail.com', 'Laprida', 58, 'Miramar', 'La Costa', 1870, 'Arreglo de fresias perfumadas', 'Entrega unica', 80, 2),
-(106581, 'Yeni', 'Gomez', 1188887777, 'maria@gmail.com', 'Rivadavia', 152, 'la plata', 'la plata', 1003, '', 'Entrega Unica', 82, 84),
-(809872, 'Yeni', 'Gomez', 1188887777, 'maria@gmail.com', 'Rivadavia', 152, 'la plata', 'la plata', 1003, '', 'Entrega Unica', 83, 85),
-(583530, 'Romina', 'Gomes', 1167777777, 'maria@gmail.com', 'laprida', 85, 'Avellaneda', 'Avellaneda', 4321, '', 'Entrega Unica', 84, 86),
-(264432, 'Florencia', 'Gomes', 1177889911, 'maria@gmail.com', 'laprida', 85, 'Avellaneda', 'Avellaneda', 1033, '', 'Entrega Unica', 85, 87);
+(800118, 'Florencia', 'Gomes', 1167777777, 'maria@gmail.com', 'laprida', 1956, 'Avellaneda', 'Avellaneda', 2000, '', 'Entrega Unica', 86, 88),
+(123419, 'Romina', 'vidal', 1167777777, 'maria@gmail.com', 'Belgrano', 85, 'Avellaneda', 'Avellaneda', 2000, '', 'Entrega Unica', 87, 89),
+(940626, 'Florencia', 'Gomes', 1167777777, 'maria@gmail.com', 'laprida', 1956, 'Avellaneda', 'Avellaneda', 2000, '', 'Entrega Unica', 88, 90),
+(348524, 'Florencia', 'Gomes', 1167777777, 'maria@gmail.com', 'laprida', 1956, 'Avellaneda', 'Avellaneda', 1033, '', 'Entrega Unica', 89, 91),
+(759730, 'Florencia', 'Gomes', 1167777777, 'maria@gmail.com', 'laprida', 1956, 'Avellaneda', 'Avellaneda', 1452, '', 'Entrega Unica', 90, 92),
+(927741, 'Romina', 'Gomes', 1167777777, 'maria@gmail.com', 'laprida', 1956, 'Avellaneda', 'Avellaneda', 2000, '', 'Entrega Unica', 91, 93),
+(513174, 'Florencia', 'Gomes', 1167777777, 'maria@gmail.com', 'laprida', 1956, 'Avellaneda', 'Avellaneda', 2000, '', 'Entrega Unica', 92, 94),
+(564756, 'Florencia', 'Gomes', 1167777777, 'maria@gmail.com', 'laprida', 1956, 'Avellaneda', 'Avellaneda', 2000, '', 'Entrega Unica', 93, 95);
 
 -- --------------------------------------------------------
 
@@ -168,17 +198,6 @@ CREATE TABLE `historial_del_estado` (
   `IDPedido` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `historial_del_estado`
---
-
-INSERT INTO `historial_del_estado` (`Codigo_de_Estado`, `Codigo_de_Pedido`, `Fecha`, `IDHistorial_de_Estado`, `IDPedido`) VALUES
-(1, 1000, '2023-10-29', 10, 2),
-(3, 1001, '2023-10-29', 11, 3),
-(4, 1002, '2023-10-29', 12, 4),
-(2, 1003, '2023-10-29', 13, 5),
-(5, 1004, '2023-10-29', 14, 6);
-
 -- --------------------------------------------------------
 
 --
@@ -191,90 +210,22 @@ CREATE TABLE `pedido` (
   `Fecha_Entrega` date NOT NULL,
   `Estado_Actual` varchar(45) NOT NULL,
   `IDPedido` int(11) NOT NULL,
-  `ID_Empleado` int(11) NOT NULL
+  `IDProducto_Catalogo` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `pedido`
 --
 
-INSERT INTO `pedido` (`Cantidad`, `Precio`, `Fecha_Entrega`, `Estado_Actual`, `IDPedido`, `ID_Empleado`) VALUES
-(4, 4000, '2023-10-29', 'preparado', 2, 100),
-(1, 6000, '2023-10-29', 'preparado', 3, 100),
-(7, 6000, '2023-10-29', 'preparado', 4, 100),
-(4, 7000, '2023-10-29', 'preparado', 5, 100),
-(4, 6000, '2023-10-29', 'preparado', 6, 100),
-(7, 6000, '0000-00-00', 'pendiente', 7, 100),
-(4, 7000, '0000-00-00', 'pendiente', 8, 100),
-(2, 6000, '2023-11-06', 'pendiente', 10, 100),
-(4, 4000, '2023-11-06', 'pendiente', 11, 100),
-(7, 6000, '2023-11-08', 'pendiente', 12, 100),
-(7, 6000, '2023-11-08', 'pendiente', 13, 100),
-(7, 6000, '2023-11-08', 'pendiente', 14, 100),
-(7, 6000, '2023-11-08', 'pendiente', 15, 100),
-(7, 6000, '2023-11-08', 'pendiente', 16, 100),
-(7, 6000, '2023-11-08', 'pendiente', 17, 100),
-(7, 6000, '2023-11-08', 'pendiente', 18, 100),
-(3, 9000, '2024-01-04', 'pendiente', 28, 100),
-(2, 6000, '2023-11-09', 'pendiente', 29, 100),
-(2, 6000, '2023-11-15', 'pendiente', 30, 100),
-(3, 9000, '2023-11-30', 'pendiente', 31, 100),
-(3, 9000, '2023-11-15', 'pendiente', 32, 100),
-(3, 9000, '2023-11-08', 'pendiente', 33, 100),
-(3, 9000, '2023-11-08', 'pendiente', 34, 100),
-(3, 6000, '2023-11-21', 'pendiente', 35, 100),
-(7, 9000, '2023-11-23', 'pendiente', 36, 100),
-(3, 6000, '2023-11-22', 'pendiente', 37, 100),
-(6, 9000, '2023-12-07', 'pendiente', 38, 100),
-(6, 9000, '2023-12-07', 'pendiente', 39, 100),
-(2, 6000, '2023-11-14', 'pendiente', 40, 100),
-(2, 6000, '2023-11-14', 'pendiente', 41, 100),
-(2, 6000, '2023-11-08', 'pendiente', 42, 100),
-(4, 6000, '2023-11-08', 'pendiente', 43, 100),
-(4, 6000, '2023-11-14', 'pendiente', 44, 100),
-(4, 6000, '2023-11-16', 'pendiente', 45, 100),
-(2, 6000, '2023-11-30', 'pendiente', 46, 100),
-(23, 6000, '2023-11-09', 'pendiente', 47, 100),
-(23, 6000, '2023-11-09', 'pendiente', 48, 100),
-(4, 6000, '2023-11-08', 'pendiente', 49, 100),
-(4, 6000, '2023-11-08', 'pendiente', 50, 100),
-(8, 9000, '2023-11-09', 'pendiente', 51, 100),
-(3, 9000, '2023-11-08', 'pendiente', 52, 100),
-(3, 7000, '2023-11-15', 'pendiente', 53, 100),
-(3, 7000, '2023-11-15', 'pendiente', 54, 100),
-(5, 9000, '2023-11-15', 'pendiente', 55, 100),
-(4, 8000, '2023-11-15', 'pendiente', 56, 100),
-(3, 7000, '2023-11-15', 'pendiente', 57, 100),
-(3, 7000, '2023-11-15', 'pendiente', 58, 100),
-(5, 9000, '2023-11-15', 'pendiente', 59, 100),
-(4, 8000, '2023-11-15', 'pendiente', 60, 100),
-(3, 7000, '2023-11-09', 'pendiente', 61, 100),
-(3, 7000, '2023-11-09', 'pendiente', 62, 100),
-(5, 9000, '2023-11-09', 'pendiente', 63, 100),
-(4, 8000, '2023-11-09', 'pendiente', 64, 100),
-(2, 9000, '2023-11-09', 'pendiente', 65, 100),
-(3, 4000, '2023-11-09', 'pendiente', 66, 100),
-(3, 4000, '2023-11-09', 'pendiente', 67, 100),
-(5, 9000, '2023-11-09', 'pendiente', 68, 100),
-(3, 7000, '2023-11-09', 'pendiente', 69, 100),
-(3, 7000, '2023-11-09', 'pendiente', 70, 100),
-(5, 9000, '2023-11-09', 'pendiente', 71, 100),
-(4, 8000, '2023-11-09', 'pendiente', 72, 100),
-(2, 9000, '2023-11-09', 'pendiente', 73, 100),
-(3, 4000, '2023-11-09', 'pendiente', 74, 100),
-(3, 4000, '2023-11-09', 'pendiente', 75, 100),
-(5, 9000, '2023-11-09', 'pendiente', 76, 100),
-(14, 6000, '2023-11-10', 'pendiente', 77, 100),
-(2, 6000, '2023-12-07', 'pendiente', 78, 100),
-(1, 9000, '2023-11-10', 'pendiente', 79, 100),
-(1, 6000, '2023-11-16', 'pendiente', 80, 100),
-(1, 6000, '2023-11-16', 'pendiente', 81, 100),
-(1, 6000, '2023-11-16', 'pendiente', 82, 100),
-(1, 6000, '2023-11-12', 'pendiente', 83, 100),
-(3, 6000, '2023-11-12', 'pendiente', 84, 100),
-(1, 6000, '2023-11-12', 'pendiente', 85, 100),
-(7, 6000, '2023-11-12', 'pendiente', 86, 100),
-(3, 7000, '2023-11-16', 'pendiente', 87, 100);
+INSERT INTO `pedido` (`Cantidad`, `Precio`, `Fecha_Entrega`, `Estado_Actual`, `IDPedido`, `IDProducto_Catalogo`) VALUES
+(7, 6000, '2023-11-16', 'preparado', 88, 7581),
+(2, 7000, '2023-11-17', 'enviado', 89, 7582),
+(8, 4000, '2023-11-15', 'enviado', 90, 7580),
+(4, 6000, '2023-11-18', 'enviado', 91, 7581),
+(4, 6000, '2023-11-18', 'pendiente', 92, 7581),
+(2, 7000, '2023-11-17', 'pendiente', 93, 7582),
+(4, 6000, '2023-11-17', 'pendiente', 94, 7581),
+(2, 7000, '2023-11-19', 'pendiente', 95, 7582);
 
 -- --------------------------------------------------------
 
@@ -440,11 +391,26 @@ INSERT INTO `venta` (`idventa`, `total`) VALUES
 (53, 18000.00),
 (54, 6000.00),
 (55, 42000.00),
-(56, 24000.00);
+(56, 24000.00),
+(57, 42000.00),
+(58, 14000.00),
+(59, 32000.00),
+(60, 24000.00),
+(61, 27000.00),
+(62, 17000.00),
+(63, 27000.00),
+(64, 16000.00);
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `calificacion`
+--
+ALTER TABLE `calificacion`
+  ADD PRIMARY KEY (`id_calificacion`),
+  ADD KEY `id_pedido` (`id_pedido`);
 
 --
 -- Indices de la tabla `cliente_empresa`
@@ -490,7 +456,7 @@ ALTER TABLE `historial_del_estado`
 --
 ALTER TABLE `pedido`
   ADD PRIMARY KEY (`IDPedido`),
-  ADD KEY `fk_PEDIDO_EMPLEADO` (`ID_Empleado`);
+  ADD KEY `fk_IDProducto_Catalogo` (`IDProducto_Catalogo`) USING BTREE;
 
 --
 -- Indices de la tabla `perfil_cargo`
@@ -528,16 +494,22 @@ ALTER TABLE `venta`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `calificacion`
+--
+ALTER TABLE `calificacion`
+  MODIFY `id_calificacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de la tabla `cliente_empresa`
 --
 ALTER TABLE `cliente_empresa`
-  MODIFY `IDCliente_Empresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `IDCliente_Empresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT de la tabla `destinatario`
 --
 ALTER TABLE `destinatario`
-  MODIFY `IDDestinatario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `IDDestinatario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
 
 --
 -- AUTO_INCREMENT de la tabla `empleado`
@@ -567,7 +539,7 @@ ALTER TABLE `historial_del_estado`
 -- AUTO_INCREMENT de la tabla `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `IDPedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `IDPedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT de la tabla `perfil_cargo`
@@ -597,11 +569,17 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `venta`
 --
 ALTER TABLE `venta`
-  MODIFY `idventa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `idventa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `calificacion`
+--
+ALTER TABLE `calificacion`
+  ADD CONSTRAINT `calificacion_ibfk_1` FOREIGN KEY (`id_pedido`) REFERENCES `pedido` (`IDPedido`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `destinatario`
@@ -619,13 +597,13 @@ ALTER TABLE `empleado`
 -- Filtros para la tabla `historial_del_estado`
 --
 ALTER TABLE `historial_del_estado`
-  ADD CONSTRAINT `fk_HISTORIAL_DEL_ESTADO_PEDIDO` FOREIGN KEY (`IDPedido`) REFERENCES `pedido` (`IDPedido`);
+  ADD CONSTRAINT `historial_del_estado_ibfk_1` FOREIGN KEY (`IDPedido`) REFERENCES `pedido` (`IDPedido`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `pedido`
 --
 ALTER TABLE `pedido`
-  ADD CONSTRAINT `fk_Pedido_Empleado` FOREIGN KEY (`ID_Empleado`) REFERENCES `empleado` (`ID_Empleado`);
+  ADD CONSTRAINT `pedido_ibfk_1` FOREIGN KEY (`IDProducto_Catalogo`) REFERENCES `producto_catalogo` (`IDProducto_Catalogo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `usuario`

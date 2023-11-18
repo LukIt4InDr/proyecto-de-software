@@ -2,8 +2,12 @@
 
 session_start();
 
+/*if(isset($_SESSION['user'])){
+    header("Location:../index.php");
+}*/
+
 //cadena de conexion
-$conexion = mysqli_connect("localhost", "root","","floreria");
+$conexion = mysqli_connect("localhost", "root","","floreria3");
 
 //si no existe la base de datos
 if (!$conexion)
@@ -33,11 +37,16 @@ if ($filas == 1){
         header("Location:../realizarpago.php");
         exit();   
     }
-    header("Location:../galeria.php");
-    //header("Location:../index.php");
+    
+    if($_SESSION['user']['IDPerfil_Cargo']==1){
+        header("Location:../galeria.php");
+        exit();
+    }
+    header("Location:../index.php");
 }        
 else{    
-    echo "usuario o clave incorrecto";
+    $_SESSION['message']= '<div class="alert alert-danger alert-dismissible text-center fade show" role="alert">usuario o clave incorrecto<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">';
+    header("Location:../login.php");
 }
 
 ?>

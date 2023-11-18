@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+<?php
+
+session_start();
+
+if(isset($_POST['card-custom'])){
+    $designCard = $_POST['tarjeta'];
+    $precioCard = $_POST['precio'];
+    $texto = $_POST['mensaje'];
+
+    $tarjetaCard = ["nombreCard"=>$designCard, "precioCard"=>$precioCard, "mensaje"=>$texto];
+
+    if(isset($_SESSION['carrito'])){
+        $_SESSION['carrito'][0]['tarjeta'] = $tarjetaCard;
+        unset($_SESSION['total']);
+        $_SESSION['total'] = $_SESSION['carrito'][0]['subtotal'] + $_SESSION['carrito'][0]['tarjeta']["precioCard"];
+    }
+}
+
+
+include_once 'sections/header.php';
+
+?>
+
+<!--<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,12 +40,12 @@
 
 <body>
 
-    <div class="container">
+    <div class="container">-->
 
 
 
         <!--Menu-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!--<nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.php"><img src="imagenes/petals-logo.png" alt="petals-logo"
                         id="logo"></a>
@@ -56,19 +79,19 @@
 
                 </div>
             </div>
-        </nav>
+        </nav>-->
 
         <!--tarjeta-->
         <div class="tarjetaContenedor">
-            <img src="imagenes/diseños/<?php echo $_POST["tarjeta"] ?>.jpg">
+            <img src="imagenes/diseños/<?php echo $_POST["tarjeta"] ?>.jpg" with="100%">
             <div class="tarjetaDiseno">
                 <?php echo $_POST["mensaje"] ?>
             </div>
         </div>
 
-        <div>
+        <div class="text-center">
             <a href="datoscompra.php" class="btn btn-primary btn-lg justify-content-center" id="botonContinuar">Continuar</a>
         </div>
 
 
-        <?php require_once 'sections/footer.php'; ?>
+<?php require_once 'sections/footer.php'; ?>

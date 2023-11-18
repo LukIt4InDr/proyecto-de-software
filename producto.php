@@ -1,8 +1,9 @@
 <?php 
 session_start();
-$conexion = mysqli_connect("localhost", "root","","floreria");
+include 'app/conexion.php';
+/*$conexion = mysqli_connect("localhost", "root","","floreria");
 if (!$conexion)
-    die("No existe la base de datos" .mysqli_connect_error()); //si no existe la base de datos
+    die("No existe la base de datos" .mysqli_connect_error()); //si no existe la base de datos*/
 
 $id = $_GET['id'];
 

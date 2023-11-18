@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include 'app/conexion.php';
 //cadena de conexion
 /*$conexion = mysqli_connect("localhost", "root","","floreria");
@@ -10,11 +11,12 @@ $sql = "SELECT * FROM producto_catalogo";
 
 $result = mysqli_query($conexion,$sql);
 // array = [1,2,3,4] o array2 = ["primero"=>1,"segundo"=>2,""] (array asociativo)
-/*echo "<pre>";
-while($reg = mysqli_fetch_assoc($result)){	
+//echo "<pre>";
+//print_r($_SESSION);
+/*while($reg = mysqli_fetch_assoc($result)){	
 	print_r($reg);	
-}  
-echo "</pre>";	*/
+} */ 
+//echo "</pre>";	
 
 include 'sections/header.php';
 ?>

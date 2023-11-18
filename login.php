@@ -1,9 +1,18 @@
 <?php
+session_start();
 include 'sections/header.php';
 
  ?>
-   <div class="container mt-5" id="login">
-        <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 card mt-5" id="card-login">
+ <div class="container">     
+    <?php
+    if(isset($_SESSION["message"])){
+        echo $_SESSION['message'];
+        unset($_SESSION['message']);
+    }
+     ?>     
+ </div>
+   <div class="container mt-1" id="login">
+        <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6 card mt-1" id="card-login">
             <div class="card-body">
                 <h1>Iniciar Sesión</h1>
                 <form method="post" action="app/login.php">

@@ -1,4 +1,5 @@
 <?php
+
 include 'sections/header.php';
 ?>
 <section class="container">
