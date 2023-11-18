@@ -11,8 +11,21 @@ session_start();
 include 'app/conexion.php';
 
 $sql = "select * from pedido"; //consulta que deberia ir a la tabla cliente, relacionada con el pedido
-
 $result =mysqli_query($conexion, $sql);
+
+$sqlCalificados = "select * from 
+pedido inner join calificacion 
+on pedido.IDPedido = calificacion.id_pedido";
+$resultCalificados =mysqli_query($conexion, $sqlCalificados);
+
+//calificacion
+
+//$sqlCalificacion = "select * from calificacion"; //consulta que deberia ir a la tabla cliente, relacionada con el pedido
+
+//$resultCalificacion =mysqli_query($conexion, $sqlCalificacion);
+
+
+
 
 //$comp = mysqli_fetch_assoc($result);
 
@@ -38,28 +51,57 @@ echo "</pre>";*/
 
 		<h1>Historial de compras</h1>
 		<hr>
-		<table class="table table-danger table-striped-columns">
+
+		<h2>Sin calificar</h2>
+
+		<table class="table table-danger table-striped-columns text-center">
 		  <thead>
 		    <tr>		      
-		      <th scope="col">ID del pedido</th>		      
-		      <th scope="col" class="text-center">Calificación</th>
+		      <th scope="col">ID del pedido</th>	
+			  <th scope="col" class="text-center">Estado</th>
 		    </tr>
 		  </thead>
 		  <tbody>
 		  	<?php while($comp = mysqli_fetch_assoc($result)){ ?>
 		    <tr>		      
-		      <td><?php echo $comp['IDPedido'] ?></td>
+				
+		      	<td><?php echo $comp['IDPedido'] ?></td>
 		      <?php if($comp['Estado_Actual'] != "enviado"){ ?>		      
 		      	<td class="d-flex justify-content-center"><?php echo $comp['Estado_Actual'] ?></td>		      
 		      <?php }else{ ?>		      
 				<td class="d-flex justify-content-center">		  
 		      		<a href="calificarCompra.php?id=<?php echo $comp['IDPedido'] ?>" class="btn btn-primary">Calificar Compra</a>    			      
-		      	</td>		      		      
+		      	</td>		 
+				  
 		  		<?php } ?>
-		    </tr>	
-		    <?php }?>	    		    
+		    <?php }?>	   
+
 		  </tbody>
 		</table>
+
+		<h2>Pedidos calificados</h2>
+
+		<table class="table table-danger table-striped-columns text-center">
+		  <thead>
+		    <tr>		      
+		      <th scope="col">ID del pedido</th>	
+			  <th>Puntaje</th>	      
+			  <th>Comentario</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	<?php while($comp = mysqli_fetch_assoc($resultCalificados)){ ?>
+		    <tr>		      
+				
+		      	<td><?php echo $comp['IDPedido'] ?></td>
+				<td><?php echo $comp['puntaje'] ?></td>     		      
+				<td><?php echo $comp['comentario'] ?></td>
+				  
+		  		<?php } ?>
+
+		  </tbody>
+		</table>
+
 	</div>
 	<div class="row">
 		<div class="col-sm text-center">
