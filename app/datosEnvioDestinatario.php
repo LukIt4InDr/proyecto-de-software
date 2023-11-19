@@ -13,11 +13,10 @@ session_start();
 
     $datosDest = [$nombreDest, $apellidoDest, $calle, $num, $loc, $cpDest, $phoneDest, $mensajeDest];
 
+    $_SESSION['datosDestinatario'] = $datosDest;
+
     if (isset($_SESSION['datosDestinatario'])) {
-        header('Location:../datoscompra.php');
-    } else {
-        $_SESSION['datosDestinatario'] = $datosDest;
-        header('Location:../destinatario.php');
+        header('Location:../seleccionTarjeta.php');
     }
 
 ?>

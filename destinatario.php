@@ -50,10 +50,7 @@ echo "</pre>";*/
 			</div>
 			<div class="mb-3">
 				<input type="submit" name="btnDest" class="btn btn-primary" value="continuar">
-				<?php if(isset($_SESSION['datosDestinatario'])){ ?>
-				<a href="personalizar_tarjeta.php" class="btn btn-info">Personalizar tarjeta</a>
-				<a href="elegir_tarjeta.php" class="btn btn-info">Elegir tarjeta prediseñada</a>
-				<?php }?>
+
 			</div>
 		</form>	
 	</div>
