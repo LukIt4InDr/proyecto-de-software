@@ -10,7 +10,7 @@ echo "</pre>";*/
  ?>
 <div class="container">
 	<div class="row mt-5">
-		<form action="app/datosEnvio.php" method="POST" class="border mx-auto w-75">	
+		<form action="app/datosEnvioDestinatario.php" method="POST" class="border mx-auto w-75">	
 			<div class="mb-3">
 				<label for="">Nombre del Destinatario</label>		
 				<input type="text" class="form-control" name="nombreDest">

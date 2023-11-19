@@ -33,7 +33,7 @@ echo "</pre>";*/
 	  </tbody>
 	</table>
 	<div class="mt-3 d-flex justify-content-end">
-		<a href="fechaentrega.php" class="btn btn-primary">Continuar</a>
+		<a href="datosEnvioFormulario.php" class="btn btn-primary">Continuar</a>
 	</div>
  </div>
 

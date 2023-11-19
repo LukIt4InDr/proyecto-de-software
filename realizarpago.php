@@ -95,7 +95,7 @@ echo "</pre>";
 				<p>Cuotas</p>
 				<form action="app/confirmarPago.php" method="POST">
 					<select name="" id="" class="form-select my-2">
-						<option value="">Eligir</option>
+						<option value="">Elegir</option>
 						<option value="">3 cuotas</option>
 						<option value="">6 cuotas</option>
 						<option value="">12 cuotas</option>
