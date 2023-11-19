@@ -65,12 +65,11 @@ echo "</pre>";*/
 	    </tr>	
 	  </tbody>
 	</table>
+
 	<div class="mt-3 d-flex justify-content-end">
-		<a href="app/confirmarCompra.php" class="btn btn-primary">Aceptar</a>
-		<?php if(isset($_SESSION["confirmarCompra"])){?>
-		<a href="<?php echo isset($_SESSION['user']) ? 'realizarpago.php' : 'login.php'  ?>" class="btn btn-success">Finalizar Compra</a>
-		<?php }?>
+		<a href="realizarpago.php" class="btn btn-success">Finalizar Compra</a>
 	</div>
+
  </div>
 
  <?php require_once 'sections/footer.php'; ?>
