@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3307
--- Tiempo de generación: 20-11-2023 a las 14:58:15
+-- Tiempo de generación: 20-11-2023 a las 15:07:11
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -248,10 +248,10 @@ CREATE TABLE `pedido` (
 --
 
 INSERT INTO `pedido` (`Cantidad`, `Precio`, `Fecha_Entrega`, `Estado_Actual`, `IDPedido`, `IDProducto_Catalogo`) VALUES
-(7, 6000, '2023-11-16', 'enviado', 88, 7581),
-(2, 7000, '2023-11-17', 'enviado', 89, 7582),
+(7, 6000, '2023-11-16', 'preparado', 88, 7581),
+(2, 7000, '2023-11-17', 'preparado', 89, 7582),
 (8, 4000, '2023-11-15', 'preparado', 90, 7580),
-(4, 6000, '2023-11-18', 'enviado', 91, 7581),
+(4, 6000, '2023-11-18', 'preparado', 91, 7581),
 (4, 6000, '2023-11-18', 'entregado', 92, 7581),
 (2, 7000, '2023-11-17', 'pendiente', 93, 7582),
 (4, 6000, '2023-11-17', 'pendiente', 94, 7581),
@@ -298,8 +298,8 @@ INSERT INTO `pedido` (`Cantidad`, `Precio`, `Fecha_Entrega`, `Estado_Actual`, `I
 (1, 4000, '2023-11-21', 'preparado', 142, 7580),
 (1, 8000, '2023-11-22', 'pendiente', 143, 7583),
 (1, 4000, '2023-11-22', 'pendiente', 144, 7580),
-(1, 8000, '2023-11-28', 'enviado', 145, 7583),
-(1, 6000, '2023-11-21', 'pendiente', 146, 7581),
+(1, 8000, '2023-11-28', 'preparado', 145, 7583),
+(1, 6000, '2023-11-21', 'preparado', 146, 7581),
 (1, 4000, '2023-11-22', 'preparado', 147, 7580),
 (1, 7000, '2023-11-21', 'pendiente', 148, 7582),
 (1, 4000, '2023-11-28', 'preparado', 149, 7580),
@@ -310,9 +310,9 @@ INSERT INTO `pedido` (`Cantidad`, `Precio`, `Fecha_Entrega`, `Estado_Actual`, `I
 (1, 4000, '2023-11-29', 'pendiente', 154, 7580),
 (1, 4000, '2023-11-29', 'pendiente', 155, 7580),
 (1, 8000, '2023-11-29', 'preparado', 156, 7583),
-(1, 4000, '2023-11-21', 'enviado', 157, 7580),
-(1, 8000, '2023-11-27', 'enviado', 158, 7583),
-(1, 7000, '2023-11-22', 'enviado', 159, 7582);
+(1, 4000, '2023-11-21', 'preparado', 157, 7580),
+(1, 8000, '2023-11-27', 'preparado', 158, 7583),
+(1, 7000, '2023-11-22', 'preparado', 159, 7582);
 
 -- --------------------------------------------------------
 
