@@ -3,19 +3,6 @@ session_start();
 
 include 'conexion.php';
 
-/*echo "<pre>";
-print_r($_SESSION);
-echo "</pre>";*/
-
-if(isset($_POST['confirmar'])){
-	if($_POST['pago'] == 'mp'){
-		$_SESSION['pago'] = $_POST['pago'];
-		header("Location:../realizarpago.php");
-		exit();
-	}
-}
-
-if(isset($_POST['pay'])){
 	$fechaEntrega = $_SESSION['fechaEntrega'];
 	$total = $_SESSION['total'];
 
@@ -48,7 +35,39 @@ if(isset($_POST['pay'])){
 		$codigo_pedido = mt_rand(100000, 999999);
 		
 
-		$sql_dest = "insert into destinatario(Codigo_de_Pedido, Nombre, Apellido_destinatario, Telefono, Email, Calle, Numero, Localidad, Partido, CP, Observacion, IDPedido) values($codigo_pedido,'$nombre','$apellido',$phone,'maria@gmail.com','$calle',$num,'$localidad','$localidad','$cp','Entrega Unica',$idPedido)";	
+		$sql_dest = "insert into destinatario
+		(Codigo_de_Pedido, 
+		Nombre, 
+		Apellido_destinatario, 
+		Telefono, 
+		Email, 
+		Calle, 
+		Numero, 
+		Localidad, 
+		Partido, 
+		CP, 
+		Producto, 
+		Observacion, 
+		IDPedido, 
+		tarjeta, 
+		tarjeta_mensaje) 
+
+		values(
+		$codigo_pedido,
+		'$nombre',
+		'$apellido',
+		$phone,
+		'maria@gmail.com',
+		'$calle',
+		$num,
+		'$localidad',
+		'$localidad',
+		'$cp',
+		'',
+		'Entrega Unica',
+		$idPedido, 
+		'$_SESSION[tarjetaNombre]',
+		'$_SESSION[tarjetaMensaje]')";
 
 		mysqli_query($conexion,$sql_dest);
 
@@ -64,30 +83,24 @@ if(isset($_POST['pay'])){
 		$usuario = $_SESSION['user']['Nombre_de_Usuario'];
 		
 
-		$sql_client = "insert into cliente_empresa(Nombre, ApellidoDeCliente, Email, Telefono, Calle, Numero, Localidad, Partido, CP, Usuario) values('$nombre','$apellido', '$email', $phone,'$calle',$num,'$localidad','$localidad','$cp','$usuario')";	
+		$sql_client = "insert into cliente_empresa(Nombre, ApellidoDeCliente, Email, Telefono, Calle, Numero, Localidad, Partido, CP, Usuario) values('$nombre','$apellido', '$email', $phone,'$calle',$num,'$localidad','$localidad','$cp','$usuario')";
 
 		mysqli_query($conexion,$sql_client);
 
-		unset($_SESSION['carrito']);
-		unset($_SESSION['fechaEntrega']);
-		unset($_SESSION['datosCliente']);
-		unset($_SESSION['datosDestinatario']);
-		unset($_SESSION['total']);
-		unset($_SESSION['confirmarCompra']);
-		unset($_SESSION['pago']);
+		//limpia
+	
+		require "limpiarDatos.php";
 
 		$_SESSION['codigo'] = $codigo_pedido;
 
-		$_SESSION['message'] = '<div class="alert alert-success alert-dismissible fade show" role="alert">Gracias por tu compra. Tu pedido se encuentra en Estado Pendiente bajo el código número ' . $_SESSION['codigo'] . ' Cuando esté en camino te enviaremos un e-mail para que puedas hacer el seguimiento.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div><div class="d-flex justify-content-end"><a href="index.php" class="btn btn-primary">Continuar</a></div>';
+		$_SESSION['message'] = '<div class="alert alert-success alert-dismissible fade show" role="alert">Gracias por tu compra. Tu pedido se encuentra en Estado Pendiente bajo el código número ' . $_SESSION['codigo'] . ' Cuando esté en camino te enviaremos un e-mail para que puedas hacer el seguimiento.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div><div class="d-flex justify-content-end">';
 
-		header("Location:../realizarpago.php");
+		//redireccion
+		header("Location:../index.php");
 
 	}catch(Exception $e){
 		echo $e->getMessage();
+		echo "error";
 	}
-
-}
-
-
 
 ?>

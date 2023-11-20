@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 include 'app/conexion.php';
 
 $id = $_GET['id'];
@@ -32,7 +34,7 @@ echo "</pre>";*/
 		<h1 class="text-center my-3">DATOS DEL PEDIDO <?php echo $env["Nombre_del_AF"] ?></h1>
 		<hr>
 
-		<table class="table w-75 mx-auto text-center">
+		<table class="table w-75 mx-auto text-center table-striped table-hover">
 			<thead>
 				<tr>
 					<th>Datos</th>
@@ -43,17 +45,19 @@ echo "</pre>";*/
 				<?php foreach($env as $i => $value){ ?>
 				<tr>
 					<th><?php echo $i ?></th>
-					<td><?php echo $value ?></td>
+					 <td><?php if ($value!="") echo $value;
+					 else echo "sin informacion"; ?></td>
 				</tr>
 				<?php }?>
 
 				<tr>
 					<td>Link de la tarjeta</td>
-					<td> <a href="tarjetaPersonalizada.php?
-					tarjeta=<?php echo $env["tarjeta"]; ?>
-					&
-					mensaje=<?php echo $env["tarjeta_mensaje"]; ?>"
-					>Ver</a> </td>
+					<?php 
+						if ($env["tarjeta"] != "")
+							echo "<td> <a class='btn btn-primary' href='visualizar_tarjeta.php?tarjeta=$env[tarjeta]&mensaje=$env[tarjeta_mensaje]&id=$id'>Ver tarjeta</a> </td>";
+						else
+						    echo "<td> no disponible </td>";
+						?>
 				</tr>
 
 			</tbody>

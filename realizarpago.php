@@ -100,7 +100,7 @@ echo "</pre>";
 						<option value="">6 cuotas</option>
 						<option value="">12 cuotas</option>
 					</select>
-					<input type="submit" name="pay" class="btn btn-primary w-100" value="pagar">
+					<input type="submit" name="pay" class="btn btn-primary w-100" value="Pagar">
 				</form>
 			</div>
 		</div>

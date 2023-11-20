@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styleTarjeta.css">
-    <script defer src="script.js"></script>
+  <!---  <script defer src="script.js"></script> -->
 
     <title>Floreria Petals</title>
 </head>
@@ -84,17 +84,20 @@
                         <?php }?>
                     <?php }?>                     
                 </ul>
-                <?php if(isset($_SESSION['user'])){?>
-                        <a href="app/logout.php" class="btn btn-danger btn-lg" id="iniciar-sesion">Salir</a>
-                <?php }else{ ?>
-
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                    <a href="login.php" class="btn btn-primary btn-lg" type="submit" id="iniciar-sesion">Login</a>
+               
+                <form action="galeria_busqueda.php" method="get" class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" name="busqueda" id="busqueda">
+                    <button class="btn btn-success">Buscar</button>
                 </form>
-                <?php }?>
 
+                <?php if (isset($_SESSION['user'])) { ?>
+                    <a href="app/logout.php" class="btn btn-danger" id="iniciar-sesion">Cerrar sesion</a>
+                <?php } else { ?>
+                
+                    <a href="login.php" class="btn btn-primary btn" type="submit" id="iniciar-sesion">Iniciar sesion</a>
+                
+                <?php } ?>
+                
             </div>
         </div>
     </nav>

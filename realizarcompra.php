@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+
+if (empty($_SESSION['carrito'])) {
+    header("location: index.php");
+}
+
 include 'sections/header.php';
 
 /*echo "<pre>";
@@ -8,7 +13,10 @@ print_r($_SESSION);
 echo "</pre>";*/
  ?>
  <div class="container">
- 	<table class="table">
+
+	<h1>Informacion</h1>
+
+ 	<table class="table mt-5">
 	  <thead>
 	    <tr>	      
 	      <th scope="col">Nombre del producto</th>
@@ -32,7 +40,7 @@ echo "</pre>";*/
 	    </tr>	   
 	  </tbody>
 	</table>
-	<div class="mt-3 d-flex justify-content-end">
+	<div class="mt-3 container d-flex align-items-center justify-content-center">
 		<a href="datosEnvioFormulario.php" class="btn btn-primary">Continuar</a>
 	</div>
  </div>

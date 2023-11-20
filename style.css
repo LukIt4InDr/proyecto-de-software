@@ -8,9 +8,10 @@ body {
     align-items: center;
 }
 
-h1,h2 {
+h1,
+h2 {
     text-align: center;
-    margin-top: 100px;
+    margin-top: 30px;
     color: #b96f85;
 }
 
@@ -18,16 +19,31 @@ header {
     box-shadow: 0px 7px 20px gray;
 }
 
-#Texto-Bienvenido{
+#principal-div {
+    margin-top: 50px;
+}
+
+#bienvenida {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    transform: translate(-50%, 50%);
+    font-size: 50px;
+    /*width: 40%;*/
+}
+
+#Texto-Bienvenido {
     margin-top: 30px;
 }
 
-footer{
+footer {
     text-align: center;
     background-color: #b96f85;
     color: white;
     margin-top: 100px;
     padding: 50px;
+    position: relative;
+    width: 100%;
 }
 
 #ver-mas {
@@ -38,7 +54,7 @@ footer{
     margin-top: 30px;
 }
 
-#iniciar-sesion{
+#iniciar-sesion {
     margin-left: 20px;
 }
 
@@ -46,17 +62,40 @@ footer{
     margin-top: 30px;
 }
 
-#imagen-inicio
-{
+#imagen-inicio {
     height: 600px;
+    width: 120%;
 }
 
-.format{
-    border:3px solid gold;    
-    object-fit: cover;    
+.format {
+    border: 3px solid gold;
+    object-fit: cover;
     height: 50%;
 }
 
-.height-custom{
+.height-custom {
     height: 280px;
+}
+
+#espaciadoBody {
+    margin-bottom: 250px;
+}
+
+.carousel-img {
+    margin: auto;
+}
+
+.galeria-card {
+    transition: .2s;
+    cursor: pointer;
+}
+
+.galeria-card:hover {
+    transform: scale(1.09);
+}
+
+.personalizarRadio {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
 }
