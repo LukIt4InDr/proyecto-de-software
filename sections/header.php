@@ -94,7 +94,8 @@
                     <a href="app/logout.php" class="btn btn-danger" id="iniciar-sesion">Cerrar sesion</a>
                 <?php } else { ?>
                 
-                    <a href="login.php" class="btn btn-primary btn" type="submit" id="iniciar-sesion">Iniciar sesion</a>
+                    <a href="login.php" class="btn btn-primary btn me-2" type="submit" id="iniciar-sesion">Iniciar sesion</a>
+                    <a href="signup.php" class="btn btn-outline-secondary btn" type="submit" id="registrarse">Registrarse</a>
                 
                 <?php } ?>
                 

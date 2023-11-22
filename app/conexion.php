@@ -1,6 +1,6 @@
 <?php
 //cadena de conexion
-$conexion = mysqli_connect("localhost", "root","","floreria3");
+$conexion = mysqli_connect("localhost", "root","","floreria4");
 
 //si no existe la base de datos
 if (!$conexion)
