@@ -6,11 +6,6 @@ if (empty($_SESSION['carrito'])) {
 }
 
 include 'sections/header.php';
-/*
-echo "<pre>";
-print_r($_SESSION);
-echo "</pre>";*/
-
 
 ?>
 <div class="container">
@@ -29,7 +24,6 @@ echo "</pre>";*/
 			</div>
 			<div class="mb-3">
 				<label for="">Producto</label>
-				<!--<input type="text" class="form-control" name="producto">-->
 				<table>
 					<?php foreach ($_SESSION['carrito'] as $cart) { ?>
 						<tr>

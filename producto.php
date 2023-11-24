@@ -1,9 +1,6 @@
 <?php 
 session_start();
 include 'app/conexion.php';
-/*$conexion = mysqli_connect("localhost", "root","","floreria");
-if (!$conexion)
-    die("No existe la base de datos" .mysqli_connect_error()); //si no existe la base de datos*/
 
 $id = $_GET['id'];
 
@@ -12,14 +9,6 @@ $sql = "select * from producto_catalogo where IDProducto_Catalogo=$id";
 $result = mysqli_query($conexion, $sql);
 
 $reg = mysqli_fetch_assoc($result);
-
-/*echo "<pre>";
-print_r($reg);
-echo "</pre>";	*/
-/*
-echo "<pre>";
-	print_r($_SESSION);
-echo "</pre>";*/
 
 include 'sections/header.php';
 ?>
@@ -50,8 +39,6 @@ include 'sections/header.php';
 					echo "<a href='login.php' class='btn btn-primary'>Inicie sesion para comprar</a>";
 				}
 				?>
-
-				<!-- <input type="submit" value="Agregar al Carrito" class="btn btn-primary"> -->
 			</form>
 			<?php if(isset($_SESSION['carrito'])){ ?>
 			<div class="mb-3 mt-3">

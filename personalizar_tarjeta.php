@@ -7,7 +7,7 @@ include 'sections/header.php';
 <section class="container">
 	<h2 class="text-center">Personalizar Tarjeta</h2>
 	<hr>
-	<form action="tarjetaPersonalizada.php" method="get">
+	<form action="tarjetaPersonalizada.php" method="POST">
 		<div class="row height-custom">
 			<input type="hidden" name="precio" value="3000">
 

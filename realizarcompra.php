@@ -8,9 +8,6 @@ if (empty($_SESSION['carrito'])) {
 
 include 'sections/header.php';
 
-/*echo "<pre>";
-print_r($_SESSION);
-echo "</pre>";*/
  ?>
  <div class="container">
 

@@ -1,11 +1,7 @@
 <?php
 session_start();
 
-include 'sections/header.php'; /*
-echo "<pre>";
-print_r($_SESSION);
-echo "</pre>";*/
-
+include 'sections/header.php';
 ?>
 <div class="container">
 	<h2>Datos del envío</h2>

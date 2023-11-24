@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+error_reporting(0);
 
     $nombreDest = $_POST['nombreDest'];
     $apellidoDest = $_POST['apellidoDest'];

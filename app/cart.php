@@ -1,6 +1,6 @@
 <?php
-
 session_start();
+error_reporting(0);
 
 $prod_id = $_POST['prodId'];
 $nombreProducto = $_POST['nombreProducto'];

@@ -25,12 +25,6 @@ else
 
 	$result = mysqli_query($conexion, $sql);
 }
-
-/*$env = mysqli_fetch_assoc($result);
-echo "<pre>";
-print_r($env);
-echo "</pre>";*/
-
  ?>
 <div class="container">
 	<div class="row">

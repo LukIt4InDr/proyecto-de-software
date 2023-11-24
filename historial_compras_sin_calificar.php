@@ -2,12 +2,6 @@
 
 session_start();
 
-/*if(isset($_SESSION["user"])){
-    if($_SESSION["user"]["IDPerfil_Cargo"] != 1 ){
-        header("Location:index.php");
-    }
-}*/
-
 include 'app/conexion.php';
 
 if (!empty($_GET["resultadoSinCalificar"])) {

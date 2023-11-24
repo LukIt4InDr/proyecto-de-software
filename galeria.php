@@ -1,22 +1,10 @@
 <?php 
 session_start();
 include 'app/conexion.php';
-//cadena de conexion
-/*$conexion = mysqli_connect("localhost", "root","","floreria");
-if (!$conexion)
-    die("No existe la base de datos" .mysqli_connect_error()); //si no existe la base de datos
-    */
 
 $sql = "SELECT * FROM producto_catalogo";
 
 $result = mysqli_query($conexion,$sql);
-// array = [1,2,3,4] o array2 = ["primero"=>1,"segundo"=>2,""] (array asociativo)
-//echo "<pre>";
-//print_r($_SESSION);
-/*while($reg = mysqli_fetch_assoc($result)){	
-	print_r($reg);	
-} */ 
-//echo "</pre>";	
 
 include 'sections/header.php';
 ?>

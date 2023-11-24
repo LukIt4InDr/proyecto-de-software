@@ -1,10 +1,6 @@
 <?php 
 session_start();
 include 'sections/header.php';
-echo "<pre>";
-//print_r($_SESSION);
-//var_dump(isset($_SESSION["datosDestinatario"]));
-echo "</pre>";
 
 ?>
 <div class="container">

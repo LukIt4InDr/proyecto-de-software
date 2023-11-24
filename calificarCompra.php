@@ -1,12 +1,5 @@
 <?php 
 
-//session_start();
-/*if(isset($_SESSION["user"])){
-	if($_SESSION["user"]["IDPerfil_Cargo"] != 1 ){
-		header("Location:index.php");
-	}
-}*/
-
 $id = $_GET['id'];
 
 include_once 'sections/header.php';

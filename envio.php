@@ -15,15 +15,6 @@ $env = mysqli_fetch_assoc($result);
 
 
 include 'sections/header.php';
-
-/*echo "<pre>";
-print_r($env);
-echo "</pre>";*/
-
-/*foreach($env as $i => $value){
-	echo "$i => $value<br>";
-}*/
-
 ?>
 
 <div class="container">

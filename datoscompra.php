@@ -10,7 +10,6 @@ if(isset($_POST['card'])){
 	$nombreCard = $_POST['nombre_card'];
 	$precioCard = $_POST['precio_card'];
 	$nombreFoto = $_POST['nombreFoto'];
-	//$precioMensaje = $_POST['precio_Mensaje'];
 
 	$tarjetaCard = ["idCard"=>$idCard, "nombreCard"=>$nombreCard, "precioCard"=>$precioCard];
 
@@ -20,7 +19,20 @@ if(isset($_POST['card'])){
 	if(isset($_SESSION['carrito'])){
 		$_SESSION['carrito'][0]['tarjeta'] = $tarjetaCard;
 		unset($_SESSION['total']);
-		$_SESSION['total'] = $_SESSION['carrito'][0]['subtotal'] + $_SESSION['carrito'][0]['tarjeta']["precioCard"];
+
+		$acum = 0;
+
+		foreach ($_SESSION['carrito'] as $key => $value) {
+
+			$acum = $acum + $value["subtotal"];
+
+			if(isset($value["tarjeta"])){
+				$acum = $acum + $value["tarjeta"]["precioCard"];
+			}
+			
+		}
+		
+		$_SESSION['total'] = $acum;
 	}
 }
 
@@ -31,20 +43,25 @@ if(isset($_POST['card-custom'])){
 
 	$tarjetaCard = ["nombreCard"=>$designCard, "precioCard"=>$precioCard, "mensaje"=>$texto];
 
-	/*$_SESSION["tarjetaNombre"] = $designCard;
-	$_SESSION["tarjetaMensaje"] = $texto;*/
-
 	if(isset($_SESSION['carrito'])){
 		$_SESSION['carrito'][0]['tarjeta'] = $tarjetaCard;
 		unset($_SESSION['total']);
-		$_SESSION['total'] = $_SESSION['carrito'][0]['subtotal'] + $_SESSION['carrito'][0]['tarjeta']["precioCard"];
+
+		$acum = 0;
+
+		foreach ($_SESSION['carrito'] as $key => $value) {
+
+			$acum = $acum + $value["subtotal"];
+
+			if(isset($value["tarjeta"])){
+				$acum = $acum + $value["tarjeta"]["precioCard"];
+			}
+			
+		}
+
+		$_SESSION['total'] = $acum;
 	}
 }
-/*
-echo "<pre>";
-print_r($_SESSION);
-echo "</pre>";*/
-
 ?>
  <div class="container">
 

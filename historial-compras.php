@@ -2,12 +2,6 @@
 
 session_start();
 
-/*if(isset($_SESSION["user"])){
-	if($_SESSION["user"]["IDPerfil_Cargo"] != 1 ){
-		header("Location:index.php");
-	}
-}*/
-
 include 'app/conexion.php';
 
 $sql = "select * from pedido"; //consulta que deberia ir a la tabla cliente, relacionada con el pedido
@@ -17,23 +11,7 @@ $sqlCalificados = "select * from
 pedido inner join calificacion 
 on pedido.IDPedido = calificacion.id_pedido";
 $resultCalificados =mysqli_query($conexion, $sqlCalificados);
-
-//calificacion
-
-//$sqlCalificacion = "select * from calificacion"; //consulta que deberia ir a la tabla cliente, relacionada con el pedido
-
-//$resultCalificacion =mysqli_query($conexion, $sqlCalificacion);
-
-
-
-
-//$comp = mysqli_fetch_assoc($result);
-
 include 'sections/header.php';
-
-/*echo "<pre>";
-print_r($comp);
-echo "</pre>";*/
 
 ?>
 <div class="container">

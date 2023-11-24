@@ -34,9 +34,6 @@ $result = mysqli_query($conexion, $sql);
 
 include 'sections/header.php';
 
-/*echo "<pre>";
-print_r( mysqli_fetch_assoc($result) );
-echo "</pre>";*/
 ?>
 <div class="container">
 	<div class="row">

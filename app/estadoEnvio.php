@@ -1,12 +1,7 @@
 <?php 
 
 session_start();
-
-/*if(isset($_SESSION["user"])){
-	if($_SESSION["user"]["IDPerfil_Cargo"] != 20 ){
-		header("Location:index.php");
-	}
-}*/
+error_reporting(0);
 
 include 'conexion.php';
 
